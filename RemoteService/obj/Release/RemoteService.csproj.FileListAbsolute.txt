@@ -1,0 +1,28 @@
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Release\RemoteService.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Release\RemoteService.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Release\NDWR.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Release\NHibernate.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Release\NHibernate.Validator.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Release\NDWR.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Release\NHibernate.Validator.xml
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\obj\Release\ResolveAssemblyReference.cache
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\obj\Release\RemoteService.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\obj\Release\RemoteService.pdb
+D:\MyDocument\DotNetWeb\SmartAjax\RemoteService\bin\Release\RemoteService.dll
+D:\MyDocument\DotNetWeb\SmartAjax\RemoteService\bin\Release\RemoteService.pdb
+D:\MyDocument\DotNetWeb\SmartAjax\RemoteService\bin\Release\NDWR.dll
+D:\MyDocument\DotNetWeb\SmartAjax\RemoteService\bin\Release\NHibernate.dll
+D:\MyDocument\DotNetWeb\SmartAjax\RemoteService\bin\Release\NHibernate.Validator.dll
+D:\MyDocument\DotNetWeb\SmartAjax\RemoteService\bin\Release\NDWR.pdb
+D:\MyDocument\DotNetWeb\SmartAjax\RemoteService\obj\Release\RemoteService.csprojResolveAssemblyReference.cache
+D:\MyDocument\DotNetWeb\SmartAjax\RemoteService\obj\Release\RemoteService.dll
+D:\MyDocument\DotNetWeb\SmartAjax\RemoteService\obj\Release\RemoteService.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\RemoteService\obj\Release\ResolveAssemblyReference.cache
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\RemoteService\obj\Release\RemoteService.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\RemoteService\obj\Release\RemoteService.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\RemoteService\bin\Release\RemoteService.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\RemoteService\bin\Release\RemoteService.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\RemoteService\bin\Release\NDWR.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\RemoteService\bin\Release\NHibernate.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\RemoteService\bin\Release\NHibernate.Validator.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\RemoteService\bin\Release\NDWR.pdb

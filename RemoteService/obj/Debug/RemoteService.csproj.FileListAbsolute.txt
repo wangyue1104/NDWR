@@ -1,0 +1,31 @@
+d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax\RemoteService\bin\Debug\RemoteService.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax\RemoteService\bin\Debug\RemoteService.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax\RemoteService\bin\Debug\SmartAjax.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax\RemoteService\bin\Debug\SmartAjax.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax\RemoteService\obj\Debug\ResolveAssemblyReference.cache
+d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax\RemoteService\obj\Debug\RemoteService.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax\RemoteService\obj\Debug\RemoteService.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax1\SmartAjax\RemoteService\bin\Debug\RemoteService.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax1\SmartAjax\RemoteService\bin\Debug\RemoteService.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax1\SmartAjax\RemoteService\bin\Debug\SmartAjax.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax1\SmartAjax\RemoteService\bin\Debug\SmartAjax.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax1\SmartAjax\RemoteService\obj\Debug\ResolveAssemblyReference.cache
+d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax1\SmartAjax\RemoteService\obj\Debug\RemoteService.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax1\SmartAjax\RemoteService\obj\Debug\RemoteService.pdb
+D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\RemoteService\bin\Debug\RemoteService.dll
+D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\RemoteService\bin\Debug\RemoteService.pdb
+D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\RemoteService\bin\Debug\SmartAjax.dll
+D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\RemoteService\bin\Debug\SmartAjax.pdb
+D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\RemoteService\obj\Debug\RemoteService.csprojResolveAssemblyReference.cache
+D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\RemoteService\obj\Debug\RemoteService.dll
+D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\RemoteService\obj\Debug\RemoteService.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\RemoteService.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\RemoteService.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\obj\Debug\ResolveAssemblyReference.cache
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\obj\Debug\RemoteService.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\obj\Debug\RemoteService.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\NDWR.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\NDWR.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\NHibernate.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\NHibernate.Validator.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\NHibernate.Validator.xml

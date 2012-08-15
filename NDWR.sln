@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSite", "WebSite", "{4C280F50-E2C8-4985-B68B-60415DCF31A9}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{CD7AE4AB-AA03-428E-B213-315C1F963953}|RemoteService.dll;{EF67D3E7-6FCA-4544-B6B8-FB07024E6DBA}|NDWR.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/WebSite"
+		Debug.AspNetCompiler.PhysicalPath = "WebSite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebSite\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WebSite"
+		Release.AspNetCompiler.PhysicalPath = "WebSite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WebSite\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "10885"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteService", "RemoteService\RemoteService.csproj", "{CD7AE4AB-AA03-428E-B213-315C1F963953}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDWR", "NDWR\NDWR.csproj", "{EF67D3E7-6FCA-4544-B6B8-FB07024E6DBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDWRTest", "NDWRTest\NDWRTest.csproj", "{09B11687-DD4D-48CF-89E9-F7516A9647A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C280F50-E2C8-4985-B68B-60415DCF31A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C280F50-E2C8-4985-B68B-60415DCF31A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C280F50-E2C8-4985-B68B-60415DCF31A9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C280F50-E2C8-4985-B68B-60415DCF31A9}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{CD7AE4AB-AA03-428E-B213-315C1F963953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD7AE4AB-AA03-428E-B213-315C1F963953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD7AE4AB-AA03-428E-B213-315C1F963953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD7AE4AB-AA03-428E-B213-315C1F963953}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF67D3E7-6FCA-4544-B6B8-FB07024E6DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF67D3E7-6FCA-4544-B6B8-FB07024E6DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF67D3E7-6FCA-4544-B6B8-FB07024E6DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF67D3E7-6FCA-4544-B6B8-FB07024E6DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09B11687-DD4D-48CF-89E9-F7516A9647A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09B11687-DD4D-48CF-89E9-F7516A9647A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09B11687-DD4D-48CF-89E9-F7516A9647A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09B11687-DD4D-48CF-89E9-F7516A9647A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
