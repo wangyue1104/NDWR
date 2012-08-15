@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<nhv-configuration xmlns='urn:nhv-configuration-1.0'>
+    <property name='apply_to_ddl'>false</property>
+    <property name='autoregister_listeners'>false</property>
+    <property name='default_validator_mode'>UseAttribute</property>
+    
+    <mapping assembly='RemoteService'/>
+</nhv-configuration>
+<!--http://nhforge.org/wikis/validator/nhibernate-validator-1-0-0-documentation.aspx-->
