@@ -12,7 +12,7 @@ public partial class AsycUpload : System.Web.UI.Page {
             if (Request.Files == null || Request.Files.Count == 0) {
                 Response.Write("");
             } else {
-                Response.Write(Request.Files[0].FileName);
+                Response.Write(Request.Files.AllKeys[0] + Request.Files[0].FileName);
                 Request.Files[0].SaveAs(
                     Server.MapPath("~/Upload") + "\\" + Request.Files[0].FileName
                 );

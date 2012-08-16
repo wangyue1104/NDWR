@@ -113,6 +113,8 @@ if (typeof window['ndwr'] == 'undefined') {
     var methodIndex = 0;
     // 传输模式
     var transferMode = ''; // 默认ajax:'';上传:'upload';下载:'download'
+    // 如果输入参数为节点
+    var uploadCtrls = new Array();
 
     // 下载iframe名称
     var dl_ifm_name = 'ndwr_download_ifm';
@@ -142,30 +144,10 @@ if (typeof window['ndwr'] == 'undefined') {
     }
 
 
-    function buildTransferParams(){
-        batchTransfer['SABatchID'] = batchId; // 批次号
-        batchTransfer['Method|' + methodIndex] = serviceName + '.' + methodName; //Method|[methodIndex] = [ServiceName].[MethodName]
-
-        if (args != null) {
-            for (var i = 0; i < args.length - 1; i++) { // 顺序添加参数
-                batchTransfer['Param|' + i + '|' + methodIndex] = args[i].toString(); // Param|[paramIndex]|[methodIndex]  = [value]
-            }
-            // 记录调用信息
-            var invoke = {};
-            invoke.BatchId = batchId; // 批次号
-            invoke.MethodIndex = methodIndex; // 方法索引
-            invoke.Service = serviceName; // 服务名
-            invoke.Method = methodName; // 方法名
-            invoke.CallBackFunc = args[args.length - 1]; // 回调参数信息
-
-            batchMethod.push(invoke);
-        }
-    }
-
     /*
-     * 验证
+     * 生成用户调用的参数，对参数进行统一格式
      * args 用户调用参数集
-     * remoteParamCount 服务器端方法参数个数
+     * argLen 服务器端方法参数个数
      * 方法:function(arg1,arg2,...,argx,callback)
      * callback : 回调参数类型
         1.{ callBack : function(data),errorHandler : function(errors) } 可以自定义错误回调函数
@@ -180,12 +162,25 @@ if (typeof window['ndwr'] == 'undefined') {
             throw new Error('暂不支持在批量中进行文件下载');
         }
 
-        paramList = new Array(argLen + 1);
+        uploadCtrls.length = 0; // 清空上传节点元素数组
+        paramList = new Array(argLen + 1);// 新的参数集合
         for(var i=0; i< argLen; i++){
-            if(typeof(args[i]) == 'function'){
+            var argItem = args[i];
+            if(typeof(argItem) == 'function'){
                 throw new Error('参数不能为函数类型');
             }
-            paramList[i] = args[i];
+            // 文件上传传参
+            if (getType(argItem) == 'HTMLInputElement') { // 如果为上传控件节点元素
+                if (argItem.name == '' || argItem.name == 'undefined') {
+                    throw new Error('请为上传控件设置name属性');
+                }
+                uploadCtrls.push(argItem);
+                paramList[i] = argItem.name; // 如果为上传控件，则把控件name当作参数
+                transferMode = 'upload'; // 设置传输方式
+                continue;
+            }
+            // 正常传参
+            paramList[i] = argItem;
         }
 
 	    var retCallBack = {};
@@ -207,6 +202,30 @@ if (typeof window['ndwr'] == 'undefined') {
         return paramList;
     }
 
+
+    /* 
+     * 生成传输的参数
+    */
+    function buildTransferParams(serviceName, methodName, argList) {
+        batchTransfer['SABatchID'] = batchId; // 批次号
+        batchTransfer['Method|' + methodIndex] = serviceName + '.' + methodName; //Method|[methodIndex] = [ServiceName].[MethodName]
+
+        if (argList != null) {
+            for (var i = 0; i < argList.length - 1; i++) { // 顺序添加参数
+                batchTransfer['Param|' + i + '|' + methodIndex] = argList[i].toString(); // Param|[paramIndex]|[methodIndex]  = [value]
+            }
+            // 记录调用信息
+            var invoke = {};
+            invoke.BatchId = batchId; // 批次号
+            invoke.MethodIndex = methodIndex; // 方法索引
+            invoke.Service = serviceName; // 服务名
+            invoke.Method = methodName; // 方法名
+            invoke.CallBackFunc = argList[argList.length - 1]; // 回调参数信息
+
+            batchMethod.push(invoke);
+        }
+    }
+
     // 开启批量提交
     ndwr.BeginBatch = function () {
         batchFlag = true; // 批量标记
@@ -216,7 +235,9 @@ if (typeof window['ndwr'] == 'undefined') {
         batchId++; // 批次号递增
     }
 
-    ndwr.RemoteMethod = function(serviceName, methodName, args, argLen) {
+    // 远程提交
+    ndwr.RemoteMethod = function (serviceName, methodName, args, argLen, traMode) {
+        transferMode = traMode == 'download' || traMode == 'upload' ? traMode : '';
         var argList = bulidParams(args,argLen);
 
         if (!batchFlag) { // 如果没有开启批量提交，则自动递增批次号
@@ -226,26 +247,10 @@ if (typeof window['ndwr'] == 'undefined') {
             methodIndex++;
         }
 
-        batchTransfer['SABatchID'] = batchId;
-        batchTransfer['Method|' + methodIndex] = serviceName + '.' + methodName; //Method|[methodIndex] = [ServiceName].[MethodName]
+        buildTransferParams(serviceName, methodName, argList); // 生成传输的参数
 
-        if (argList != null) {
-            for (var i = 0; i < argList.length - 1; i++) { // 顺序添加参数
-                batchTransfer['Param|' + i + '|' + methodIndex] = argList[i].toString(); // Param|[paramIndex]|[methodIndex]  = [value]
-            }
-            // 记录调用信息
-            var invoke = new RemoteInvoke();
-            invoke.BatchId = batchId;
-            invoke.MethodIndex = methodIndex;
-            invoke.Service = serviceName;
-            invoke.Method = methodName;
-            invoke.CallBackFunc = argList[argList.length - 1];
-
-            batchMethod.push(invoke);
-        }
-
-        if (batchFlag != true &&　transferMode == '') { // 如果没有开启批量提交且为默认传输模式，则直接提交
-            ajaxSubmit();
+        if (batchFlag != true) { // 如果没有开启批量提交且为默认传输模式，则直接提交
+            RemoteSubmit();
         }
     }
 
@@ -258,11 +263,12 @@ if (typeof window['ndwr'] == 'undefined') {
     
     // 执行远程调用
     function RemoteSubmit() {
-        if(downloadFlag){
-            download(ndwr.remoteURL, batchTransfer);
-            downloadFlag = false;
-        }else{
+        if (transferMode == '') {
             ajaxPostJson(ndwr.remoteURL, batchTransfer);
+        }else if(transferMode == 'upload'){
+            post(ndwr.remoteURL, batchTransfer,ul_ifm_name);
+        } else if (transferMode == 'download') {
+            post(ndwr.remoteURL, batchTransfer,dl_ifm_name);
         }
         batchTransfer = {};
     }
@@ -350,57 +356,65 @@ if (typeof window['ndwr'] == 'undefined') {
 
 
     /*========================文件下载=======================*/
-    
-    // 开启下载模式
-    ndwr.BeginDownload = function(){
-        transferMode = 'download';
 
-        if (window.frames[_ifm_name] == null) {
+
+
+    function post(url, param, ifm_name) {
+
+        if (window.frames[ifm_name] == null) {
             var div = document.createElement("div");
             // Add the div to the document first, otherwise IE 6 will ignore onload handler.
             document.body.appendChild(div);
-            div.innerHTML = "<iframe src='javascript:void(0)' frameborder='0' style='width: 0px;height: 0px; border: 0;' id='" + dl_ifm_name + "' name='" + dl_ifm_name + "' onload='ndwr.RemoteCallback();'></iframe>";
+            div.innerHTML = "<iframe src='javascript:void(0)' frameborder='0' style='width: 0px;height: 0px; border: 0;' id='" + ifm_name + "' name='" + ifm_name + "' onload='ndwr.RemoteCallback();'></iframe>";
+        }
+
+
+        var form = document.createElement("form");
+        form.action = url;
+        form.method = "post";
+        form.target = ifm_name;
+        form.style.display = "none";
+        if (transferMode == 'upload') {
+            form.enctype = "multipart/form-data";
+            moveUploadCtrls(form);
+        }
+
+        for (var item in param) {
+            var formInput = document.createElement("input");
+            formInput.setAttribute("type", "hidden");
+            formInput.setAttribute("name", item);
+            formInput.setAttribute("value", param[item]);
+            form.appendChild(formInput);
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+        return form;
+    }
+
+    /*
+     * 上传控件转移
+     */
+    function moveUploadCtrls(form) {
+        for (var i = 0; i < uploadCtrls.length; i++) {
+            var ele = uploadCtrls[i];
+            var clone = ele.cloneNode(true); // 上传文件空间副本
+
+            ele.removeAttribute('id'); // 移除id属性
+            ele.setAttribute('name', 'ndwr_file_' + ele.name); // 添加name属性 ，post提交是用到
+
+            ele.parentNode.insertBefore(clone, ele); // 在控件前插入副本控件
+            ele.parentNode.removeChild(ele); // 移除控件
+
+            form.appendChild(ele); // 把控件附加到表单上
         }
     }
-
-    // 关闭下载模式，并提交
-    ndwr.EndDownload = function(){
-        post(ndwr.remoteURL,batchTransfer,dl_ifm_name);
-        transferMode = '';
-    }
-
-
-
-
-    function post(url, param,ifm_name) {
-        var temp = document.createElement("form");
-        temp.action = url;
-        temp.method = "post";
-        temp.target = ifm_name;
-        temp.style.display = "none";
-
-        for (var x in param) {
-            var opt = document.createElement("textarea");
-            opt.name = x;
-            opt.value = param[x];
-            temp.appendChild(opt);
-        }
-        document.body.appendChild(temp);
-        temp.submit();
-        return temp;
-    }
-
-
     
-    /*========================文件上传=======================*/
-    function upload(url,param){
 
+    function getType(obj) {
+        var _t;
+        var objType = ((_t = typeof (obj)) == "object" ? Object.prototype.toString.call(obj).slice(8, -1) : _t).toLowerCase()
+        
     }
-
-    //    function isEntity(o) {
-    //        var _t;
-    //        var objType = ((_t = typeof (o)) == "object" ? Object.prototype.toString.call(o).slice(8, -1) : _t).toLowerCase()
-    //        
-    //    }
 
 })();

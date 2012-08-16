@@ -28,12 +28,22 @@ namespace NDWR.Web {
             ContentEncoding = Encoding.UTF8;
         }
 
+
+        /// <summary>
+        /// 文件名
+        /// </summary>
         public string FileName { get; set; }
-
+        /// <summary>
+        /// 文件数据
+        /// </summary>
         public Byte[] DataBuffer { get; set; }
-
+        /// <summary>
+        /// 输出类型
+        /// </summary>
         public string ContentType { get; set; }
-
+        /// <summary>
+        /// 编码
+        /// </summary>
         public Encoding ContentEncoding { get; set; }
     }
 

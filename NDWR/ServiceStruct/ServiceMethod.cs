@@ -20,7 +20,7 @@ namespace NDWR.ServiceStruct {
             this.ReturnType = methodInfo.ReturnType;
             this.MethodType =
                 methodInfo.ReturnType == typeof(TransferFile) ?
-                MethodType.BinaryStream :
+                MethodType.OutputBinaryStream :
                 MethodType.TextStream;
         }
         /// <summary>
@@ -56,8 +56,12 @@ namespace NDWR.ServiceStruct {
         /// </summary>
         TextStream,
         /// <summary>
-        /// 二进制流
+        /// 输出二进制流
         /// </summary>
-        BinaryStream
+        OutputBinaryStream,
+        /// <summary>
+        /// 输入二进制流
+        /// </summary>
+        InputBinaryStream
     }
 }

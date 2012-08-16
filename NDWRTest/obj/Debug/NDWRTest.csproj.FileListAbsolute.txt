@@ -1,0 +1,8 @@
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Debug\NDWRTest.dll
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Debug\NDWRTest.pdb
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Debug\NDWR.dll
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Debug\NDWR.pdb
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Debug\nunit.framework.xml
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\obj\Debug\NDWRTest.csprojResolveAssemblyReference.cache
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\obj\Debug\NDWRTest.dll
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\obj\Debug\NDWRTest.pdb

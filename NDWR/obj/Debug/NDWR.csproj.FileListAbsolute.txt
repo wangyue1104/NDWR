@@ -8,3 +8,8 @@ E:\GitHubRepository\NDWR\NDWR\bin\Debug\NDWR.pdb
 E:\GitHubRepository\NDWR\NDWR\obj\Debug\ResolveAssemblyReference.cache
 E:\GitHubRepository\NDWR\NDWR\obj\Debug\NDWR.dll
 E:\GitHubRepository\NDWR\NDWR\obj\Debug\NDWR.pdb
+D:\system_library\My Document\GitHub\NDWR\NDWR\bin\Debug\NDWR.dll
+D:\system_library\My Document\GitHub\NDWR\NDWR\bin\Debug\NDWR.pdb
+D:\system_library\My Document\GitHub\NDWR\NDWR\obj\Debug\NDWR.dll
+D:\system_library\My Document\GitHub\NDWR\NDWR\obj\Debug\NDWR.pdb
+D:\system_library\My Document\GitHub\NDWR\NDWR\obj\Debug\NDWR.csprojResolveAssemblyReference.cache

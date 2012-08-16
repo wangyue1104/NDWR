@@ -22,7 +22,7 @@ namespace NDWR.MethodInterceptor {
         }
 
         public object Intercept(MehtodInvocation methodInvoke) {
-            if (methodInvoke.Method.MethodType == MethodType.BinaryStream) { // 如果方法是二进制流方式
+            if (methodInvoke.Method.MethodType == MethodType.OutputBinaryStream) { // 如果方法是二进制流方式
                 methodInvoke.InvokeInfo.Response = new FileDownloadResponse();
             } else {
                 methodInvoke.InvokeInfo.Response = new AjaxRespose();

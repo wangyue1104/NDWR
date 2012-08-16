@@ -29,3 +29,12 @@ d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteSe
 d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\NHibernate.dll
 d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\NHibernate.Validator.dll
 d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\NHibernate.Validator.xml
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\RemoteService.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\RemoteService.pdb
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\NDWR.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\NHibernate.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\NHibernate.Validator.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\NDWR.pdb
+D:\system_library\My Document\GitHub\NDWR\RemoteService\obj\Debug\RemoteService.csprojResolveAssemblyReference.cache
+D:\system_library\My Document\GitHub\NDWR\RemoteService\obj\Debug\RemoteService.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\obj\Debug\RemoteService.pdb

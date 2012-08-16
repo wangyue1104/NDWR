@@ -55,14 +55,18 @@ namespace NDWR.ServiceScanner {
             sbScript.AppendFormat("{0} = {1};\r\n\r\n", service.Name, "{}");
 
             foreach (ServiceMethod method in service.PublicMethod) {
-                sbScript.AppendFormat("{0}.{1} = {2} {{ \r\n", service.Name, method.Name, paramsString(method));
-
-                sbScript.AppendFormat("    ndwr.Validate(arguments,{0});\r\n", method.Params.Length);
+                sbScript.AppendFormat("{0}.{1} = {2} {{ \r\n", service.Name, method.Name, functionString(method));
 
                 sbScript.Append(entityJsonConvert(method));
 
-                sbScript.AppendFormat("    ndwr.RemoteMethod('{0}','{1}',arguments{2}); \r\n", service.Name, method.Name,
-                    method.MethodType == MethodType.BinaryStream ? ",true" : string.Empty);
+
+
+                sbScript.AppendFormat("    ndwr.RemoteMethod('{0}','{1}',arguments,{2}{3}); \r\n", service.Name, method.Name, method.Params.Length,
+                    method.MethodType == MethodType.OutputBinaryStream ?
+                        ",'download'" :
+                        method.MethodType == MethodType.InputBinaryStream ?
+                        ",'upload'" : string.Empty);
+
 
                 sbScript.Append("}\r\n\r\n");
             }
@@ -76,7 +80,7 @@ namespace NDWR.ServiceScanner {
         /// </summary>
         /// <param name="method"></param>
         /// <returns></returns>
-        private string paramsString(ServiceMethod method) {
+        private string functionString(ServiceMethod method) {
             StringBuilder sbScript = new StringBuilder("function(");
 
             foreach (ServiceMethodParam param in method.Params) {
@@ -88,6 +92,7 @@ namespace NDWR.ServiceScanner {
             sbScript.Append(")");
             return sbScript.ToString();
         }
+
 
         private string entityJsonConvert(ServiceMethod method) {
             StringBuilder sbScript = new StringBuilder("");
