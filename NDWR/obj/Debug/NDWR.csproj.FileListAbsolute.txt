@@ -3,3 +3,8 @@ d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\SmartAja
 d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\SmartAjax\obj\Debug\ResolveAssemblyReference.cache
 d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\SmartAjax\obj\Debug\NDWR.dll
 d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\SmartAjax\obj\Debug\NDWR.pdb
+E:\GitHubRepository\NDWR\NDWR\bin\Debug\NDWR.dll
+E:\GitHubRepository\NDWR\NDWR\bin\Debug\NDWR.pdb
+E:\GitHubRepository\NDWR\NDWR\obj\Debug\ResolveAssemblyReference.cache
+E:\GitHubRepository\NDWR\NDWR\obj\Debug\NDWR.dll
+E:\GitHubRepository\NDWR\NDWR\obj\Debug\NDWR.pdb

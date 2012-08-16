@@ -51,7 +51,8 @@ namespace NDWR.ServiceScanner {
         /// <returns></returns>
         public string BuildServiceJS(Service service) {
             StringBuilder sbScript = new StringBuilder("/*NDWR自动生成脚本*/ \r\n");
-            sbScript.AppendFormat("{0} = {1};\r\n", service.Name, "{}");
+            sbScript.AppendFormat("ndwr.remoteURL = '{0}ndwr/remote.ndwr';\r\n\r\n", Config.GlobalConfig.Instance.BasePath);
+            sbScript.AppendFormat("{0} = {1};\r\n\r\n", service.Name, "{}");
 
             foreach (ServiceMethod method in service.PublicMethod) {
                 sbScript.AppendFormat("{0}.{1} = {2} {{ \r\n", service.Name, method.Name, paramsString(method));
@@ -62,8 +63,8 @@ namespace NDWR.ServiceScanner {
 
                 sbScript.AppendFormat("    ndwr.RemoteMethod('{0}','{1}',arguments{2}); \r\n", service.Name, method.Name,
                     method.MethodType == MethodType.BinaryStream ? ",true" : string.Empty);
-                
-                sbScript.Append("}\r\n");
+
+                sbScript.Append("}\r\n\r\n");
             }
             sbScript.Append("\r\n");
 
