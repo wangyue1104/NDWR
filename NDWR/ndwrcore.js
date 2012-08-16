@@ -112,6 +112,11 @@ if (typeof window['ndwr'] == 'undefined') {
     var methodIndex = 0;
     // 下载标识
     var downloadFlag = false;
+    // 下载iframe名称
+    var dl_ifm_name = 'ndwr_download_ifm';
+    // 上传iframe名称
+    var ul_ifm_name = 'ndwr_upload_ifm';
+    //
 
     // 远程方法执行前事件
     ndwr.beforeInvocationEvent = null;
@@ -227,12 +232,12 @@ if (typeof window['ndwr'] == 'undefined') {
             download("RemoteServiceHandler.rs", batchTransfer);
             downloadFlag = false;
         }else{
-            ajaxPostJson("RemoteServiceHandler.rs", batchTransfer, RemoteCallback);
+            ajaxPostJson("RemoteServiceHandler.rs", batchTransfer);
         }
         batchTransfer = {};
     }
 
-    function RemoteCallback(data, textStatus) {
+    ndwr.RemoteCallback = function(data, textStatus) {
         if (data == null || data.DataList == 0 || data.DataList.length == 0) {
             return;
         }
@@ -284,11 +289,9 @@ if (typeof window['ndwr'] == 'undefined') {
      *  @method  ajaxPostJson
      *  @param   url 远程url
      *  @param   param post参数
-     *  @param   cbFunc回调函数
-     *  @param   dataFilter 返回数据过滤
      *  @returns 异步提交句柄
      */
-    function ajaxPostJson(url, param, cbFunc) {
+    function ajaxPostJson(url, param) {
 
         var ajaxHander = $.ajax({
             url: url + "?dt=" + new Date().getTime(),
@@ -300,7 +303,7 @@ if (typeof window['ndwr'] == 'undefined') {
                 ndwr.errorHandle({ Name:'ResultException',Message:'请求失败'});
             },
             success: function (data, textStatus) {
-                cbFunc(data, textStatus);
+                ndwr.RemoteCallback(data, textStatus);
             }
         });
 
@@ -308,23 +311,14 @@ if (typeof window['ndwr'] == 'undefined') {
     }
 
 
+    /*========================文件下载=======================*/
 
-
-    var _ifm_name = 'ndwr_download_ifm';
     function download(url, param) {
         if (window.frames[_ifm_name] == null) {
-            var isIE = (document.all) ? true : false;
-            var oFrame = isIE ? 
-                document.createElement('<iframe id="' + _ifm_name + '" name="' + _ifm_name + '" onload="alert(\'OK\');">') : 
-                document.createElement("iframe");
-            //为ff设置name
-            oFrame.name = _ifm_name;
-            oFrame.id = _ifm_name;
-            oFrame.style.display = "none";
-            //oFrame.src = url;
-            document.body.insertBefore(oFrame, document.body.childNodes[0]);
-        } else {
-            //window.frames[_ifm_name].document.location = url;
+            var div = document.createElement("div");
+            // Add the div to the document first, otherwise IE 6 will ignore onload handler.
+            document.body.appendChild(div);
+            div.innerHTML = "<iframe src='javascript:void(0)' frameborder='0' style='width: 0px;height: 0px; border: 0;' id='" + dl_ifm_name + "' name='" + dl_ifm_name + "' onload='ndwr.RemoteCallback();'></iframe>";
         }
 
         post(url,param);
@@ -347,6 +341,11 @@ if (typeof window['ndwr'] == 'undefined') {
         temp.submit();
         return temp;
     }
+
+
+    
+    /*========================文件上传=======================*/
+     
 
     //    function isEntity(o) {
     //        var _t;

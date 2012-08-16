@@ -107,9 +107,6 @@ $.extend($.fn.dataTableExt.oPagination, {
                     $('li#bsp_next', an[i]).removeClass('active');
                 }
             }
-            $('#' + oSettings.sTableId + '_info').html(
-                $('#' + oSettings.sTableId + '_info').html() + oPaging.iPage
-            );
         }
     }
 });
