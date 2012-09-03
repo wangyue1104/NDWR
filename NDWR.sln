@@ -1,10 +1,14 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2010
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSite", "WebSite", "{4C280F50-E2C8-4985-B68B-60415DCF31A9}"
 	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = ""
+		SccAuxPath = ""
+		SccLocalPath = ""
+		SccProvider = ""
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = "{CD7AE4AB-AA03-428E-B213-315C1F963953}|RemoteService.dll;{EF67D3E7-6FCA-4544-B6B8-FB07024E6DBA}|NDWR.dll;"
+		ProjectReferences = "{CD7AE4AB-AA03-428E-B213-315C1F963953}|RemoteService.dll;{EF67D3E7-6FCA-4544-B6B8-FB07024E6DBA}|NDWR.dll;{F353DC06-6CD3-4C07-AE13-FBABCE394D19}|RemoteEntity.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/WebSite"
 		Debug.AspNetCompiler.PhysicalPath = "WebSite\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebSite\"
@@ -19,7 +23,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSite", "WebSite", "{4C28
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "10885"
+		VWDPort = "1829"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
@@ -28,6 +32,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDWR", "NDWR\NDWR.csproj", "{EF67D3E7-6FCA-4544-B6B8-FB07024E6DBA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDWRTest", "NDWRTest\NDWRTest.csproj", "{09B11687-DD4D-48CF-89E9-F7516A9647A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteEntity", "RemoteEntity\RemoteEntity.csproj", "{F353DC06-6CD3-4C07-AE13-FBABCE394D19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +57,10 @@ Global
 		{09B11687-DD4D-48CF-89E9-F7516A9647A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09B11687-DD4D-48CF-89E9-F7516A9647A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09B11687-DD4D-48CF-89E9-F7516A9647A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F353DC06-6CD3-4C07-AE13-FBABCE394D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F353DC06-6CD3-4C07-AE13-FBABCE394D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F353DC06-6CD3-4C07-AE13-FBABCE394D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F353DC06-6CD3-4C07-AE13-FBABCE394D19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

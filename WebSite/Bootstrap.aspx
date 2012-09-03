@@ -16,8 +16,8 @@
     <script type="text/javascript" src="Scripts/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="Scripts/datatable/plugins/DT_bootstrap.js?dd"></script>
     <script src="Scripts/bootstrap/plugins/select2/js/select2-2.1.js" type="text/javascript"></script>
-    <script src="<%=BasePath %>ndwr/ndwrcore.js" type="text/javascript"></script>
-    <script src="<%=BasePath %>ndwr/RemoteDemo.js" type="text/javascript"></script>
+    <script src="<%=BasePath %>ndwr/ndwrcore.ashx" type="text/javascript"></script>
+    <script src="<%=BasePath %>ndwr/RemoteDemo.ashx" type="text/javascript"></script>
     <script type="text/javascript" src="Scripts/datatable-ndwr.js"></script>
 
     <style type="text/css">
@@ -140,9 +140,17 @@
             <!--/span-->
             <div class="span10">
 
-                <form class="form-horizontal">
+                <form class="form-horizontal ">
                     <fieldset>
                         <legend>Legend text</legend>
+                        <div class="control-group">
+                            <label class="control-label" for="input01">Text input</label>
+                            <div class="controls">
+                                <div class="input-append">
+                                    <input class="add-on"  id="appendedInputButton" size="16" style="width:30px;" type="text"><button class="btn" type="button">Go!</button></input>
+                                </div>
+                            </div>
+                        </div>
                         <div class="control-group">
                             <label class="control-label" for="input01">Text input</label>
                             <div class="controls">

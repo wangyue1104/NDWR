@@ -13,7 +13,7 @@
 namespace NDWR.ServiceStruct {
     using System;
     using NDWR.ByteCode;
-    using NDWR.ServiceScanner;
+    using NDWR.JavaScript;
 
 
 
@@ -22,7 +22,8 @@ namespace NDWR.ServiceStruct {
     /// </summary>
     public class Service  {
 
-        public Service() { }
+        private IServiceProxy proxy = null;
+        private object obj_lock = new object();
 
         public Service(Type serviceType, string name, bool singleton, ServiceMethod[] publicMethods) {
             this.ServiceType = serviceType;
@@ -30,17 +31,21 @@ namespace NDWR.ServiceStruct {
             this.Singleton = singleton;
             this.PublicMethod = publicMethods;
 
-            this.ServiceProxy = new ServiceProxySoucreFactory(this).Build();
-            this.JavaScript = ServiceJavaScriptCache.Instance.BuildServiceJS(this);
+            //this.ServiceProxy = new ServiceProxyByteCode(this).BuildProxy();
+            this.ProxyFunc = new ServiceProxyByteCode(this).ProxyCreateFunc();
+            this.proxy = this.Singleton ? null : this.ProxyFunc();
+
+            this.JavaScript = RemoteServiceScript.Instance.BuildServiceJS(this);
 
             foreach (ServiceMethod method in this.PublicMethod) {
                 method.OwnerService = this;
             }
         }
 
-
-        private IServiceProxy proxy = null;
-
+        /// <summary>
+        /// 方法标识ID,用于检索
+        /// </summary>
+        public int Id { get; set; }
         /// <summary>
         /// 服务类类型
         /// </summary>
@@ -58,12 +63,24 @@ namespace NDWR.ServiceStruct {
         /// </summary>
         public IServiceProxy ServiceProxy {
             get {
-                return Singleton ? this.proxy : this.proxy.Instance;
-            }
-            set {
-                this.proxy = value;
+                if (!Singleton) {
+                    return ProxyFunc();
+                }
+                // 单例类
+                if (this.proxy == null) {
+                    lock (this) {
+                        if (this.proxy == null) {
+                            this.proxy = this.ProxyFunc();
+                        }
+                    }
+                }
+                return this.proxy;
             }
         }
+        /// <summary>
+        /// 代理类创建表达式数
+        /// </summary>
+        public Func<IServiceProxy> ProxyFunc { get; private set; }
         /// <summary>
         /// 服务公开方法
         /// </summary>
@@ -75,9 +92,5 @@ namespace NDWR.ServiceStruct {
         /// </summary>
         public string JavaScript { get; private set; }
     }
-
-    
-
-    
 
 }

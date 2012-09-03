@@ -26,3 +26,36 @@ d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\R
 d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\RemoteService\bin\Release\NHibernate.dll
 d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\RemoteService\bin\Release\NHibernate.Validator.dll
 d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\RemoteService\bin\Release\NDWR.pdb
+E:\GitHubRepository\NDWR\RemoteService\bin\Release\RemoteService.dll
+E:\GitHubRepository\NDWR\RemoteService\bin\Release\RemoteService.pdb
+E:\GitHubRepository\NDWR\RemoteService\bin\Release\NDWR.dll
+E:\GitHubRepository\NDWR\RemoteService\bin\Release\NHibernate.dll
+E:\GitHubRepository\NDWR\RemoteService\bin\Release\NHibernate.Validator.dll
+E:\GitHubRepository\NDWR\RemoteService\bin\Release\NDWR.pdb
+E:\GitHubRepository\NDWR\RemoteService\obj\Release\ResolveAssemblyReference.cache
+E:\GitHubRepository\NDWR\RemoteService\obj\Release\RemoteService.dll
+E:\GitHubRepository\NDWR\RemoteService\obj\Release\RemoteService.pdb
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Release\RemoteService.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Release\RemoteService.pdb
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Release\NDWR.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Release\NHibernate.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Release\NHibernate.Validator.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Release\NDWR.pdb
+D:\system_library\My Document\GitHub\NDWR\RemoteService\obj\Release\RemoteService.csprojResolveAssemblyReference.cache
+D:\system_library\My Document\GitHub\NDWR\RemoteService\obj\Release\RemoteService.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\obj\Release\RemoteService.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\RemoteService.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\RemoteService.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\NDWR.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\NHibernate.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\NHibernate.Validator.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\NDWR.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\obj\Release\ResolveAssemblyReference.cache
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\obj\Release\RemoteService.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\obj\Release\RemoteService.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\RemoteEntity.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\RemoteEntity.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\Newtonsoft.Json.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Release\RemoteEntity.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Release\Newtonsoft.Json.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Release\RemoteEntity.pdb

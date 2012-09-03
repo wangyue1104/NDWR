@@ -18,7 +18,7 @@ namespace NDWR.MethodInterceptor {
     public interface Interceptor {
 
         void Init();
-        object Intercept(MehtodInvocation methodInvoke);
+        object Intercept(MethodInvocation methodInvoke);
         void Destroy();
     }
 }

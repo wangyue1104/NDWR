@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using NDWR.Validator;
 using NDWR.Web;
 
 namespace NDWR.ServiceStruct {
@@ -10,23 +11,25 @@ namespace NDWR.ServiceStruct {
     /// </summary>
     public class ServiceMethod {
 
-        public ServiceMethod() { }
-
         public ServiceMethod(MethodInfo methodInfo, string name, ServiceMethodParam[] paramList) {
+            // 方法反射元数据信息
             this.MethodInfo = methodInfo;
             this.Name = name;
+            // 参数信息列表
             this.Params = paramList;
-
+            // 返回值类型
             this.ReturnType = methodInfo.ReturnType;
-            this.MethodType =
-                methodInfo.ReturnType == typeof(TransferFile) ?
-                MethodType.OutputBinaryStream :
-                MethodType.TextStream;
+            // 方法类型
+            this.OutputType = TypeHelper.GetTypeCategory(this.ReturnType);
         }
         /// <summary>
         /// 方法元数据信息
         /// </summary>
         public MethodInfo MethodInfo { get; private set; }
+        /// <summary>
+        /// 方法标识ID,用于检索
+        /// </summary>
+        public int Id { get; set; }
         /// <summary>
         /// 对外公开方法名
         /// </summary>
@@ -38,7 +41,7 @@ namespace NDWR.ServiceStruct {
         /// <summary>
         /// 方法类型
         /// </summary>
-        public MethodType MethodType { get; private set; }
+        public TypeCategory OutputType { get; private set; }
         /// <summary>
         /// 参数集合
         /// </summary>
@@ -50,18 +53,5 @@ namespace NDWR.ServiceStruct {
     }
 
 
-    public enum MethodType {
-        /// <summary>
-        /// 文本流
-        /// </summary>
-        TextStream,
-        /// <summary>
-        /// 输出二进制流
-        /// </summary>
-        OutputBinaryStream,
-        /// <summary>
-        /// 输入二进制流
-        /// </summary>
-        InputBinaryStream
-    }
+    
 }

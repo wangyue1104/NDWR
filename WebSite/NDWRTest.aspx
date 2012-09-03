@@ -7,8 +7,8 @@
     <title></title>
     <script src="ajaxUtils/jquery-1.4.1.js" type="text/javascript"></script>
     <%--<script type="text/javascript" src="JSONUtil.js"></script>--%>
-    <script src="<%=BasePath %>ndwr/ndwrcore.js?version=12dsdfdfdsfdsfsd" type="text/javascript"></script>
-    <script src="<%=BasePath %>ndwr/RemoteDemo.js?version=23" type="text/javascript"></script>
+    <script src="<%=BasePath %>ndwr/ndwrcore.ashx?version=123" type="text/javascript"></script>
+    <script src="<%=BasePath %>ndwr/RemoteDemo.ashx" type="text/javascript"></script>
 </head>
 <body>
     <button onclick="load()" >提交</button>
@@ -16,9 +16,16 @@
     <button onclick="loadBacth()">批量提交</button>
     <button onclick="loadMix()">混合提交</button>
     <button onclick="loadCustomError()">自定义错误提交</button>
+    <button onclick="loadMulParam()">混合参数提交</button>
     <button onclick="loadDataList()">获取数据集</button>
     <button onclick="loadDownLoad()">下载文件</button>
+    <button onclick="loadArrayTest()">测试数组</button>
+    <button onclick="loadDateTest()">测试时间</button>
 
+    <br />
+    <input type="file" id="d" name="d" />
+    <button onclick="loadUpLoad()">上传文件</button>
+    <a href="javascript:ndwr.transport.xhr.send('http://localhost:1829/WebSite/NDWRTest.aspx?action=test','1=1')">异步调用测试</a>
     <div id="msg"></div>
 <script type="text/javascript">
     ndwr.errorHandle = function (errors) {
@@ -79,13 +86,23 @@
     }
 
     function loadCustomError() {
-
         RemoteDemo.PubMethod(1, {
             callBack: function (data) { write(data); },
             errorHandler: function (errors) { write(errors[0].Message); }
         });
     }
+    
+    function loadMulParam() {
 
+        var entity = {};
+        entity.Id = 1;
+        entity.Name = "wangyue";
+        entity.Birthday = new Date();
+        RemoteDemo.PubMethod2(1,entity, {
+            callBack: function (data) { write(data); },
+            errorHandler: function (errors) { write(errors[0].Message); }
+        });
+    }
     function loadDataList() {
 
         RemoteDemo.DataList(1, function (data) {
@@ -106,7 +123,24 @@
         var entity = {};
         entity.Id = 1;
         entity.Name = "wangyue";
-        RemoteDemo.DownLoadFile(entity, null);
+        RemoteDemo.DownLoadFile(entity, function (data) {
+            write(data);
+            ndwr.transport.download(data);
+        });
+    }
+
+    function loadUpLoad() {
+        RemoteDemo.UpLoadFile(document.getElementById("d"), function (data) { write(data); });
+    }
+    function loadArrayTest() {
+        RemoteDemo.ArrayTest([1,24,6], function (data) {
+            write(data); 
+        });
+    }
+    function loadDateTest() {
+        RemoteDemo.DateTest(new Date(), function (data) {
+            write(data);
+        });
     }
 </script>
 </body>

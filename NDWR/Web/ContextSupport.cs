@@ -35,25 +35,24 @@ namespace NDWR.Web {
     /// </summary>
     public class ContextSupport {
 
-        private HttpContext _httpContext;
-        private AjaxRequest _request;
-        private IResponse _response;
 
-        public IResponse Response {
-            get { return _response; }
-            private set { _response = value; }
-        }
+        public HttpContext HttpContext { get; private set; }
 
-        public AjaxRequest Request {
-            get { return _request; }
-            set { _request = value; }
-        }
+        public IResponse Response { get; private set; }
 
+        public StdRequest Request { get; private set; }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="httpContext"></param>
         public ContextSupport(HttpContext httpContext) {
-            this._httpContext = httpContext;
+            this.HttpContext = httpContext;
 
-            // 收集参数
-            _request = new AjaxRequest(httpContext.Request);
+            // 初始化请求，收集参数
+            Request = new StdRequest(HttpContext.Request);
+            // 生成输出模板
+            Response = ResponseFactory.Get(Request.TransferMode, HttpContext.Response);
         }
 
         /// <summary>
@@ -61,18 +60,14 @@ namespace NDWR.Web {
         /// </summary>
         /// <returns></returns>
         public void ProcessRequest() {
-            Response = MethodInvocationManager.Instance.BatchInvoke(_request.InvokeBatch);
-            if (Response != null) {
-                Response.Context = _httpContext;
-                Response.InvokeBatch = _request.InvokeBatch;
-            }
+            MethodInvocationManager.Instance.BatchInvoke(Request.InvokeBatch);
+            Response.InvokeBatch = Request.InvokeBatch;
         }
-
-
-        public void NullResponse(Exception ex) {
-            Response = new NullResponse();
-                Response.Context = _httpContext;
-                Response.InvokeBatch = _request.InvokeBatch;
+        /// <summary>
+        /// 完成输出
+        /// </summary>
+        public void CompleteRequest() {
+            HttpContext.ApplicationInstance.CompleteRequest();
         }
     }
 

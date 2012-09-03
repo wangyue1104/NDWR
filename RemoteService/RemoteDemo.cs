@@ -5,12 +5,25 @@ using System.Text;
 using NDWR.Attributes;
 using NDWR.Web;
 using NHibernate.Validator.Constraints;
+using RemoteEntity;
 
 namespace RemoteService {
 
     [RemoteService]
+    public class RemoteDemo2 {
+        [RemoteMethod]
+        public void No1() {
+
+        }
+    }
+
+    [RemoteService]
     public class RemoteDemo {
 
+        [RemoteMethod]
+        public void No1() {
+
+        }
 
         [RemoteMethod]
         public string HelloWold() {
@@ -21,6 +34,12 @@ namespace RemoteService {
         public string PubMethod(int index) {
             throw new Exception("index 超出范围");
             //return index.ToString();
+        }
+
+        [RemoteMethod]
+        public int PubMethod2(int index, Entity entity) {
+            //return index.ToString() + entity.Id.ToString();
+            return index + entity.Id.Value;
         }
 
         [RemoteMethod]
@@ -91,18 +110,43 @@ namespace RemoteService {
             return new TransferFile() {
                 FileName = "dd..xls",
                 ContentType = TransferFile.EXCEL,
-                 DataBuffer = new byte[] {11,22}
+                DataBuffer = new byte[] { 11, 22 }
             };
+        }
+
+
+        [RemoteMethod]
+        public string UpLoadFile(TransferFile file) {
+            if (file == null) {
+                return "未发现文件";
+            }
+            if (!string.IsNullOrEmpty(file.FileName)) {
+                byte[] data = new byte[file.ContentLength];
+                file.DataStream.Read(data, 0, (int)file.ContentLength);
+
+                file.SaveAs("~/Upload", file.FileName);
+            }
+            return "上传成功";
+        }
+
+        [RemoteMethod]
+        public int[] ArrayTest(int[] indexs) {
+            return indexs;
+        }
+
+        [RemoteMethod]
+        public DateTime DateTest(DateTime datetime) {
+            return DateTime.Now;
         }
     }
 
 
-    public class Entity {
-        [Range(Min = 1, Max = 10, Message = "范围1~10")]
-        public int Id { get; set; }
-        public String Name { get; set; }
-        public String Pswd { get; set; }
-    }
+    //public class Entity {
+    //    [Range(Min = 1, Max = 10, Message = "范围1~10")]
+    //    public int Id { get; set; }
+    //    public String Name { get; set; }
+    //    public String Pswd { get; set; }
+    //}
 
     public class DTOEntity{
         public string sEcho {get;set;}

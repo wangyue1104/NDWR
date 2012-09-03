@@ -41,7 +41,7 @@ $.extend($.fn.dataTableExt.oPagination, {
             var els = $('a', nPaging);
             $(els[0]).bind('click.DT', { action: "first" }, fnClickHandler);
 
-            $(els[1]).bind( 'click.DT', { action: "previous" }, fnClickHandler );
+            $(els[1]).bind('click.DT', { action: "previous" }, fnClickHandler);
             $(els[2]).bind('click.DT', { action: "next" }, fnClickHandler);
 
             $(els[3]).bind('click.DT', { action: "last" }, fnClickHandler);
@@ -49,7 +49,7 @@ $.extend($.fn.dataTableExt.oPagination, {
         },
 
         "fnUpdate": function (oSettings, fnDraw) {
-            var iListLength = 10;// $.fn.dataTableExt.oPagination.iFullNumbersShowPages;
+            var iListLength = 5; // $.fn.dataTableExt.oPagination.iFullNumbersShowPages;
 
             var oPaging = oSettings.oInstance.fnPagingInfo();
             var an = oSettings.aanFeatures.p;
@@ -107,10 +107,88 @@ $.extend($.fn.dataTableExt.oPagination, {
                     $('li#bsp_next', an[i]).removeClass('active');
                 }
             }
+
+            var tableId = oSettings.sTableId;
+            (function () {
+                if ($('#gpdiv' + tableId).length > 0) {
+                    return;
+                }
+                var pNode = an[0];
+
+                var gpdiv = document.createElement("div");
+                gpdiv.setAttribute('id', 'gpdiv' + tableId);
+                gpdiv.setAttribute('style', 'float:right;margin-left:5px; margin-top:7px;');
+
+                var gdiv = document.createElement("div");
+                gdiv.setAttribute('id', 'goPageSel' + tableId);
+                gdiv.setAttribute('class', 'input-append');
+
+                var pageInput = document.createElement("input");
+                pageInput.setAttribute('id', 'nPageIpt' + tableId);
+                pageInput.setAttribute('class', 'add-on');
+                pageInput.setAttribute('size', '16');
+                pageInput.setAttribute('type', 'text');
+                pageInput.setAttribute('style', 'width:30px;');
+
+                var goButton = document.createElement("button");
+                goButton.setAttribute('id', 'goBtn' + tableId);
+                goButton.setAttribute('class', 'btn');
+                goButton.setAttribute('type', 'button');
+                goButton.innerText = 'go!';
+
+                gdiv.appendChild(pageInput);
+                gdiv.appendChild(goButton);
+                gpdiv.appendChild(gdiv);
+                pNode.appendChild(gpdiv);
+
+            })();
+            (function () {
+                //gopage(an, tableId);
+                $('#goBtn' + oSettings.sTableId).bind('click', function (e) {
+                    e.preventDefault();
+                    oSettings._iDisplayStart = (parseInt($('#nPageIpt' + tableId).val(), 10) - 1) * oPaging.iLength;
+                    fnDraw(oSettings);
+                });
+
+            })();
         }
     }
 });
 
+
+function gopage(an,tableId) {
+    if ($('#gpdiv' + tableId).length > 0) {
+        return;
+    }
+    var pNode = an[0];
+
+    var gpdiv = document.createElement("div");
+    gpdiv.setAttribute('id', 'gpdiv' + tableId);
+    gpdiv.setAttribute('style', 'float:right;margin-left:5px; margin-top:7px;');
+
+    var gdiv = document.createElement("div");
+    gdiv.setAttribute('id', 'goPageSel' + tableId);
+    gdiv.setAttribute('class', 'input-append');
+
+    var pageInput = document.createElement("input");
+    pageInput.setAttribute('id', 'nPageIpt' + tableId);
+    pageInput.setAttribute('class', 'add-on');
+    pageInput.setAttribute('size', '16');
+    pageInput.setAttribute('type', 'text');
+    pageInput.setAttribute('style', 'width:30px;');
+
+    var goButton = document.createElement("button");
+    goButton.setAttribute('id', 'goBtn' + tableId);
+    goButton.setAttribute('class', 'btn');
+    goButton.setAttribute('type','button');
+    goButton.innerText = 'go!';
+
+    gdiv.appendChild(pageInput);
+    gdiv.appendChild(goButton);
+    gpdiv.appendChild(gdiv);
+    pNode.appendChild(gpdiv);
+
+}
 ///* Table initialisation */
 //$(document).ready(function() {
 //	$('#example').dataTable( {

@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------------------------
-//   <copyright  file="AjaxMethod.cs">
+//   <copyright  file="RemoteMethodAttribute.cs">
 //      所属项目：NDWR.Attributes
 //      创 建 人：王跃
 //      创建日期：2012-7-24 14:51:18

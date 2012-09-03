@@ -12,10 +12,11 @@
 
 namespace NDWR.Config {
     using System.Collections.Generic;
-    using System.Web;
-    using NDWR.JsonSerializer;
-    using NDWR.MethodInterceptor;
-    using NDWR.ServiceScanner;
+using System.Web;
+using NDWR.JsonSerializer;
+using NDWR.Logging;
+using NDWR.MethodInterceptor;
+using NDWR.ServiceScanner;
 
     /// <summary>
     /// GlobalConfig 概要
@@ -26,7 +27,6 @@ namespace NDWR.Config {
 
         private GlobalConfig() {
             Interceptors = new List<Interceptor>();
-
             HttpRequest request = HttpContext.Current.Request;
             BasePath = request.Url.Scheme + "://" +
                 request.Url.Host + ":" + request.Url.Port.ToString() +
@@ -40,14 +40,22 @@ namespace NDWR.Config {
         }
 
         public void DefaultConfig(string assembly) {
+            DefaultConfig(assembly, null);
+        }
+        public void DefaultConfig(string assembly,ILogFactory factory) {
+            // 首先要设置日志工厂
+            if (factory != null) {
+                LogFactory = factory;
+            }
+            // Json序列化
+            JsonSerializer = new NewtonsoftJsonSerializerImpl();
             // 服务扫描
             ServiceScanner = new AttributeServiceScanner(assembly);
-            // Json序列化
-            JsonSerializer = new DataContractJsonSerializerImpl();
+
             // 添加基础类型参数映射
-            Interceptors.Add(new ExceptionInterceptor());
-            Interceptors.Add(new ParamConvertInterceptor());
-            Interceptors.Add(new StdAjaxResponseInterceptor());
+            Interceptors.Add(new ExceptionInterceptor()); // 异常捕获
+            Interceptors.Add(new ParamConvertInterceptor()); // 参数转换
+            Interceptors.Add(new DownloadInterceptor()); // 输出模版
 
         }
 
@@ -63,10 +71,21 @@ namespace NDWR.Config {
         /// 拦截器
         /// </summary>
         public IList<Interceptor> Interceptors { get; set; }
-
+        /// <summary>
+        /// 日志工厂
+        /// </summary>
+        public ILogFactory LogFactory {
+            set {
+                LogManager.AssignFactory(value);
+            }
+        }
         /// <summary>
         /// 服务器路径
         /// </summary>
         public string BasePath { get; private set; }
+        /// <summary>
+        /// 调试模式
+        /// </summary>
+        public bool DebugMode { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using NDWR.InvocationManager;
 
 namespace NDWR.MethodInterceptor {
 
@@ -6,7 +7,7 @@ namespace NDWR.MethodInterceptor {
         public void Init() {
         }
 
-        public object Intercept(MehtodInvocation methodInvoke) {
+        public object Intercept(MethodInvocation methodInvoke) {
             try {
                 return methodInvoke.Invoke();
             } catch (Exception ex) {

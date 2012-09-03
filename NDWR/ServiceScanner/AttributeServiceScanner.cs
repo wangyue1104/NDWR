@@ -30,6 +30,8 @@ namespace NDWR.ServiceScanner {
             this._assembly = assembly;
             Azzembly = new string[] { assembly };
             Services = new ServiceScanner(this).ScanService();
+            // 保存代理类
+            NDWR.ByteCode.ServiceProxyByteCode.SaveAssembly();
         }
 
 
@@ -94,7 +96,7 @@ namespace NDWR.ServiceScanner {
                 }
                 IList<Service> serviceList = new List<Service>(); // 定义结构图
                 MethodScanner methodScanner = new MethodScanner(owner);
-
+                int serviceId = 0;
                 foreach (Type type in types) {// 遍历所有类型
                     object[] attrs = type.GetCustomAttributes(false); // 获取注解
                     Service service = owner.matchingAttribute<Service>(attrs, typeof(RemoteServiceAttribute), attribute => {
@@ -113,10 +115,11 @@ namespace NDWR.ServiceScanner {
                         );
                     });
                     if (service != null) {
+                        service.Id = serviceId++; // 添加ID
                         serviceList.Add(service);
                     }
                 }
-
+                
                 return serviceList.ToArray();
             }
         }
@@ -138,6 +141,7 @@ namespace NDWR.ServiceScanner {
                 MethodInfo[] methods = type.GetMethods(); // 获取成员方法
                 IList<ServiceMethod> actions = new List<ServiceMethod>(); // 实例化Action集合
                 ParamScanner paramScanner = new ParamScanner();
+                int methodId = 0;
                 foreach (MethodInfo method in methods) {
                     if (!isLegalMethod(method)) { // 不是有效方法
                         continue;
@@ -154,6 +158,7 @@ namespace NDWR.ServiceScanner {
                         return sm;
                     }); // 匹配注解
                     if (serviceMethod != null) {
+                        serviceMethod.Id = methodId++;
                         actions.Add(serviceMethod);
                     }
                 }

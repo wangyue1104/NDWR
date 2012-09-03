@@ -1,0 +1,27 @@
+E:\GitHubRepository\NewNDWR\NDWR\RemoteEntity\bin\Debug\RemoteEntity.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteEntity\bin\Debug\RemoteEntity.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteEntity\bin\Debug\NHibernate.Validator.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteEntity\bin\Debug\NHibernate.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteEntity\obj\Debug\ResolveAssemblyReference.cache
+E:\GitHubRepository\NewNDWR\NDWR\RemoteEntity\obj\Debug\RemoteEntity.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteEntity\obj\Debug\RemoteEntity.pdb
+D:\system_library\My Document\GitHub\NDWR\RemoteEntity\bin\Debug\RemoteEntity.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteEntity\bin\Debug\RemoteEntity.pdb
+D:\system_library\My Document\GitHub\NDWR\RemoteEntity\bin\Debug\NHibernate.Validator.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteEntity\bin\Debug\NHibernate.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteEntity\obj\Debug\RemoteEntity.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteEntity\obj\Debug\RemoteEntity.pdb
+D:\system_library\My Document\GitHub\NDWR\RemoteEntity\obj\Debug\RemoteEntity.csprojResolveAssemblyReference.cache
+D:\我的配置\My Documents\Downloads\NDWR\RemoteEntity\bin\Debug\RemoteEntity.dll
+D:\我的配置\My Documents\Downloads\NDWR\RemoteEntity\bin\Debug\RemoteEntity.pdb
+D:\我的配置\My Documents\Downloads\NDWR\RemoteEntity\bin\Debug\NHibernate.Validator.dll
+D:\我的配置\My Documents\Downloads\NDWR\RemoteEntity\bin\Debug\NHibernate.dll
+D:\我的配置\My Documents\Downloads\NDWR\RemoteEntity\obj\Debug\ResolveAssemblyReference.cache
+D:\我的配置\My Documents\Downloads\NDWR\RemoteEntity\obj\Debug\RemoteEntity.dll
+D:\我的配置\My Documents\Downloads\NDWR\RemoteEntity\obj\Debug\RemoteEntity.pdb
+D:\system_library\Desktop\NDWR\RemoteEntity\bin\Debug\RemoteEntity.dll
+D:\system_library\Desktop\NDWR\RemoteEntity\bin\Debug\RemoteEntity.pdb
+D:\system_library\Desktop\NDWR\RemoteEntity\bin\Debug\NHibernate.Validator.dll
+D:\system_library\Desktop\NDWR\RemoteEntity\obj\Debug\RemoteEntity.dll
+D:\system_library\Desktop\NDWR\RemoteEntity\obj\Debug\RemoteEntity.pdb
+D:\system_library\Desktop\NDWR\RemoteEntity\bin\Debug\NHibernate.dll

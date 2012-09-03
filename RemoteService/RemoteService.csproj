@@ -12,6 +12,14 @@
     <AssemblyName>RemoteService</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,7 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NHibernate">
-      <HintPath>..\WebSite\Bin\NHibernate.dll</HintPath>
+      <HintPath>..\..\..\My Document\GitHub\NDWR\WebSite\Bin\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate.Validator">
       <HintPath>..\WebSite\Bin\NHibernate.Validator.dll</HintPath>
@@ -56,6 +64,10 @@
     <ProjectReference Include="..\NDWR\NDWR.csproj">
       <Project>{EF67D3E7-6FCA-4544-B6B8-FB07024E6DBA}</Project>
       <Name>NDWR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RemoteEntity\RemoteEntity.csproj">
+      <Project>{F353DC06-6CD3-4C07-AE13-FBABCE394D19}</Project>
+      <Name>RemoteEntity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

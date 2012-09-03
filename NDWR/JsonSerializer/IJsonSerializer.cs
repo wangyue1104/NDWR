@@ -17,7 +17,18 @@ namespace NDWR.JsonSerializer {
     /// IJsonSerializer 概要
     /// </summary>
     public interface IJsonSerializer {
+        /// <summary>
+        /// 实体序列化
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         string Serializer(object t);
+        /// <summary>
+        /// 实体反序列化
+        /// </summary>
+        /// <param name="jsonString"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
         object Deserialize(string jsonString, Type type);
     }
 

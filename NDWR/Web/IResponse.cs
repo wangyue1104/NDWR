@@ -7,7 +7,7 @@ using System.Web;
 namespace NDWR.Web {
     public interface IResponse {
 
-        HttpContext Context { set; }
+        HttpResponse Response { get; }
         InvocationBatch InvokeBatch { set; }
         void WriteResult();
     }

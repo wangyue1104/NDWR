@@ -1,34 +1,12 @@
-d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax\RemoteService\bin\Debug\RemoteService.dll
-d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax\RemoteService\bin\Debug\RemoteService.pdb
-d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax\RemoteService\bin\Debug\SmartAjax.dll
-d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax\RemoteService\bin\Debug\SmartAjax.pdb
-d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax\RemoteService\obj\Debug\ResolveAssemblyReference.cache
-d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax\RemoteService\obj\Debug\RemoteService.dll
-d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax\RemoteService\obj\Debug\RemoteService.pdb
-d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax1\SmartAjax\RemoteService\bin\Debug\RemoteService.dll
-d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax1\SmartAjax\RemoteService\bin\Debug\RemoteService.pdb
-d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax1\SmartAjax\RemoteService\bin\Debug\SmartAjax.dll
-d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax1\SmartAjax\RemoteService\bin\Debug\SmartAjax.pdb
-d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax1\SmartAjax\RemoteService\obj\Debug\ResolveAssemblyReference.cache
-d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax1\SmartAjax\RemoteService\obj\Debug\RemoteService.dll
-d:\我的配置\My Documents\Visual Studio 2010\Projects\SmartAjax1\SmartAjax\RemoteService\obj\Debug\RemoteService.pdb
-D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\RemoteService\bin\Debug\RemoteService.dll
-D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\RemoteService\bin\Debug\RemoteService.pdb
-D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\RemoteService\bin\Debug\SmartAjax.dll
-D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\RemoteService\bin\Debug\SmartAjax.pdb
-D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\RemoteService\obj\Debug\RemoteService.csprojResolveAssemblyReference.cache
-D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\RemoteService\obj\Debug\RemoteService.dll
-D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\RemoteService\obj\Debug\RemoteService.pdb
-d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\RemoteService.dll
-d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\RemoteService.pdb
-d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\obj\Debug\ResolveAssemblyReference.cache
-d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\obj\Debug\RemoteService.dll
-d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\obj\Debug\RemoteService.pdb
-d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\NDWR.dll
-d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\NDWR.pdb
-d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\NHibernate.dll
-d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\NHibernate.Validator.dll
-d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\RemoteService\bin\Debug\NHibernate.Validator.xml
+E:\GitHubRepository\NDWR\RemoteService\bin\Debug\RemoteService.dll
+E:\GitHubRepository\NDWR\RemoteService\bin\Debug\RemoteService.pdb
+E:\GitHubRepository\NDWR\RemoteService\bin\Debug\NDWR.dll
+E:\GitHubRepository\NDWR\RemoteService\bin\Debug\NHibernate.dll
+E:\GitHubRepository\NDWR\RemoteService\bin\Debug\NHibernate.Validator.dll
+E:\GitHubRepository\NDWR\RemoteService\bin\Debug\NDWR.pdb
+E:\GitHubRepository\NDWR\RemoteService\obj\Debug\ResolveAssemblyReference.cache
+E:\GitHubRepository\NDWR\RemoteService\obj\Debug\RemoteService.dll
+E:\GitHubRepository\NDWR\RemoteService\obj\Debug\RemoteService.pdb
 D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\RemoteService.dll
 D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\RemoteService.pdb
 D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\NDWR.dll
@@ -38,3 +16,53 @@ D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\NDWR.pdb
 D:\system_library\My Document\GitHub\NDWR\RemoteService\obj\Debug\RemoteService.csprojResolveAssemblyReference.cache
 D:\system_library\My Document\GitHub\NDWR\RemoteService\obj\Debug\RemoteService.dll
 D:\system_library\My Document\GitHub\NDWR\RemoteService\obj\Debug\RemoteService.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\RemoteService.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\RemoteService.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\NDWR.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\NHibernate.Validator.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\NDWR.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\obj\Debug\ResolveAssemblyReference.cache
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\obj\Debug\RemoteService.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\obj\Debug\RemoteService.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\RemoteEntity.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\Newtonsoft.Json.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\RemoteEntity.pdb
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\RemoteEntity.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\Newtonsoft.Json.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\RemoteEntity.pdb
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\Newtonsoft.Json.xml
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\log4net.dll
+D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Debug\log4net.xml
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\obj\Debug\ResolveAssemblyReference.cache
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\bin\Debug\RemoteService.dll
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\bin\Debug\RemoteService.pdb
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\bin\Debug\NDWR.dll
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\bin\Debug\NHibernate.Validator.dll
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\bin\Debug\RemoteEntity.dll
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\bin\Debug\log4net.dll
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\bin\Debug\Newtonsoft.Json.dll
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\bin\Debug\NHibernate.dll
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\bin\Debug\NDWR.pdb
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\bin\Debug\RemoteEntity.pdb
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\bin\Debug\log4net.xml
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\bin\Debug\Newtonsoft.Json.xml
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\obj\Debug\RemoteService.dll
+D:\我的配置\My Documents\Downloads\NDWR\RemoteService\obj\Debug\RemoteService.pdb
+D:\system_library\Desktop\NDWR\RemoteService\bin\Debug\RemoteService.dll
+D:\system_library\Desktop\NDWR\RemoteService\bin\Debug\RemoteService.pdb
+D:\system_library\Desktop\NDWR\RemoteService\bin\Debug\NDWR.dll
+D:\system_library\Desktop\NDWR\RemoteService\bin\Debug\NHibernate.Validator.dll
+D:\system_library\Desktop\NDWR\RemoteService\bin\Debug\RemoteEntity.dll
+D:\system_library\Desktop\NDWR\RemoteService\bin\Debug\log4net.dll
+D:\system_library\Desktop\NDWR\RemoteService\bin\Debug\Newtonsoft.Json.dll
+D:\system_library\Desktop\NDWR\RemoteService\bin\Debug\NDWR.pdb
+D:\system_library\Desktop\NDWR\RemoteService\bin\Debug\RemoteEntity.pdb
+D:\system_library\Desktop\NDWR\RemoteService\bin\Debug\log4net.xml
+D:\system_library\Desktop\NDWR\RemoteService\bin\Debug\Newtonsoft.Json.xml
+D:\system_library\Desktop\NDWR\RemoteService\obj\Debug\RemoteService.csprojResolveAssemblyReference.cache
+D:\system_library\Desktop\NDWR\RemoteService\obj\Debug\RemoteService.dll
+D:\system_library\Desktop\NDWR\RemoteService\obj\Debug\RemoteService.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\log4net.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\log4net.xml
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\Newtonsoft.Json.xml
+D:\system_library\Desktop\NDWR\RemoteService\bin\Debug\NHibernate.dll

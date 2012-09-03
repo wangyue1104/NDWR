@@ -14,6 +14,7 @@ namespace RemoteService {
     using System.Collections;
     using System.Collections.Generic;
     using NDWR;
+    using NDWR.InvocationManager;
     using NDWR.MethodInterceptor;
     using NDWR.ServiceStruct;
     using NHibernate.Validator.Engine;
@@ -25,18 +26,18 @@ namespace RemoteService {
         public void Init() {
         }
 
-        public object Intercept(MehtodInvocation methodInvoke) {
-            IList<ServiceMethodParam> paramList = methodInvoke.Method.Params;
+        public object Intercept(MethodInvocation methodInvoke) {
+            IList<ServiceMethodParam> paramList = methodInvoke.InvokeInfo.MethodMetaData.Params;
             int index = 0;
             foreach (ServiceMethodParam param in paramList) {
-                if (!param.IsSimplyType) {
-                    object retValue = methodInvoke.InvokeInfo.TargetParams[index];
+                if (param.TypeCategory == TypeCategory.EntityType) {
+                    object retValue = methodInvoke.InvokeInfo.ParamValues[index].TarValue;
                     InvalidValue[] msgs = NHVHelper.Instance.Validate(retValue);
                     //if (!NHVHelper.Instance.IsValid(retValue)) {
                     if (msgs.Length > 0) {
                         foreach (InvalidValue iv in msgs) {
                             methodInvoke.InvokeInfo.SystemErrors.Add(
-                                new NDWR.RspError(iv.PropertyName, iv.Message));
+                                new RspError(iv.PropertyName, iv.Message));
                         }
                         return null;
                     }

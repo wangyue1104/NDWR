@@ -1,5 +1,6 @@
 ﻿using System;
 using NDWR.Validator;
+using NDWR.Web;
 
 namespace NDWR.ServiceStruct {
 
@@ -7,11 +8,12 @@ namespace NDWR.ServiceStruct {
     /// 方法参数
     /// </summary>
     public class ServiceMethodParam {
-        public ServiceMethodParam() { }
+
         public ServiceMethodParam(string name, Type paramType) {
             this.Name = name;
             this.ParamType = paramType;
-            this.IsSimplyType = ValueConvert.IsBaseType(paramType);
+            // 参数类型
+            this.TypeCategory = TypeHelper.GetTypeCategory(paramType);
         }
         /// <summary>
         /// 参数名
@@ -24,7 +26,10 @@ namespace NDWR.ServiceStruct {
         /// <summary>
         /// 是否为简单类型
         /// </summary>
-        public bool IsSimplyType { get; private set; }
+        public TypeCategory TypeCategory { get; private set; }
     }
+
+
+    
 
 }

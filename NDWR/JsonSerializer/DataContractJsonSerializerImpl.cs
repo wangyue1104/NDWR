@@ -17,7 +17,7 @@ namespace NDWR.JsonSerializer {
     using System.Text;
 
     /// <summary>
-    /// DataContractJsonSerializerImpl 概要
+    /// 默认的json序列化实现
     /// </summary>
     public class DataContractJsonSerializerImpl : IJsonSerializer {
 
