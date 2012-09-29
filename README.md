@@ -1,25 +1,24 @@
 一、简介
 =================
 
-	DWR 包含2 个主要部分： 
-	-------------------------------------------------
-		*1.一个运行在服务器端的HandlerFactory，它处理请求并且向浏览器发回响应。 
-		
-		*2.运行在浏览器端的JavaScript，它发送请求而且还能动态更新网页。 
-		
+DWR 包含2 个主要部分： 
+-------------------------------------------------
+
+*1.一个运行在服务器端的HandlerFactory，它处理请求并且向浏览器发回响应。 
+*2.运行在浏览器端的JavaScript，它发送请求而且还能动态更新网页。 
 
 二、构建一个NDWR程序
 =================
 
-	*1.程序集：NDWR.dll ，Newtonsoft.Json.dll(json序列化依赖库)
+*1.程序集：NDWR.dll ，Newtonsoft.Json.dll(json序列化依赖库)
 	
-	*2.web.config配置文件：
+*2.web.config配置文件：
 		<system.web>
 			<httpHandlers>
 				<add verb="*" path="ndwr/*.ashx" type="NDWR.Web.Handler.HandlerFactory,NDWR" />
 			</httpHandlers>
 		</system.web>
-	*3.Global.asax -> Application_Start 事件
+*3.Global.asax -> Application_Start 事件
 		void Application_Start(object sender, EventArgs e) 
 		{
 			//在应用程序启动时运行的代码
@@ -28,7 +27,7 @@
 			//NDWR.Config.GlobalConfig.Instance.Interceptors.Add(new RemoteService.NHVEntityValidateInterceptor());
 		}
 	
-	*4.编写service
+*4.编写service
 	[RemoteService]
 	public class RemoteDemoNew {
 
@@ -38,7 +37,7 @@
 		}
 	}
 	
-	*5.前台脚本
+*5.前台脚本
 		<script src="ndwr/ndwrcore.ashx" type="text/javascript"></script><!-- ndwr核心库 -->
 		<script src="ndwr/RemoteDemoNew.ashx" type="text/javascript"></script><!-- 开放服务 -->
 		<script type="text/javascript">
