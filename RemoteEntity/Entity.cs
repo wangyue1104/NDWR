@@ -13,4 +13,6 @@ namespace RemoteEntity {
         public String Pswd { get; set; }
         public DateTime? Birthday { get; set; }
     }
+
+
 }

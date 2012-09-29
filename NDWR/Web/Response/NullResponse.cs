@@ -19,7 +19,6 @@ namespace NDWR.Web {
     public class NullResponse : IResponse{
         public System.Web.HttpResponse Response { get; set; }
 
-        public InvocationBatch InvokeBatch { get; set; }
 
         public void WriteResult() {
             Response.Clear();
@@ -28,6 +27,11 @@ namespace NDWR.Web {
             Response.Write(
                 string.Format("{\"Name\":\"{0}\",\"Message\" : \"系统发生未知错误\"}",SystemError.UnKnown.ToString())
             );
+        }
+
+        public ContextSupport Context {
+            get;
+            set;
         }
     }
 }

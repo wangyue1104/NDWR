@@ -6,7 +6,8 @@ using System.Web;
 using NDWR.JavaScript;
 
 namespace NDWR.Web.Handler {
-    class CoreJavaScriptHandler : JavascriptHandler{
+
+    internal class CoreJavaScriptHandler : JavascriptHandler{
 
         public override string Javascript {
             get { return CoreJavaScript.Content; }

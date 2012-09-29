@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace NDWR.ServiceStruct {
+
     public enum TypeCategory {
         /// <summary>
         /// 简单类型

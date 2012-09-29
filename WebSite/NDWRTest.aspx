@@ -3,12 +3,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head >
     <title></title>
     <script src="ajaxUtils/jquery-1.4.1.js" type="text/javascript"></script>
     <%--<script type="text/javascript" src="JSONUtil.js"></script>--%>
-    <script src="<%=BasePath %>ndwr/ndwrcore.ashx?version=123" type="text/javascript"></script>
-    <script src="<%=BasePath %>ndwr/RemoteDemo.ashx" type="text/javascript"></script>
+    <script src="ndwr/ndwrcore.ashx?version=1234" type="text/javascript"></script>
+    <script src="ndwr/RemoteDemo.ashx" type="text/javascript"></script>
 </head>
 <body>
     <button onclick="load()" >提交</button>
@@ -28,7 +28,7 @@
     <a href="javascript:ndwr.transport.xhr.send('http://localhost:1829/WebSite/NDWRTest.aspx?action=test','1=1')">异步调用测试</a>
     <div id="msg"></div>
 <script type="text/javascript">
-    ndwr.errorHandle = function (errors) {
+    ndwr.errorHandler = function (errors) {
         var msg = '';
         for (var i = 0; i < errors.length; i++) {
             msg += errors[i]['Name'] + ':' + errors[i]['Message'] + '\r\n';
@@ -42,7 +42,14 @@
             write('返回数据为空');
         }
     }
+    ndwr.transport.completedHandler = function () {
+        write('接收完成');
+    }
 
+    ndwr.transport.sendingHandler = function () {
+        write('开始接收');
+        return true;
+    }
     function write(msg) {
         $('#msg').html(
             $('#msg').html() + '<br/>' + msg

@@ -23,6 +23,7 @@ namespace NDWR.ServiceScanner {
     /// ServiceScanner 概要
     /// </summary>
     public class AttributeServiceScanner : IServiceScanner {
+        private static readonly NDWR.Logging.ILog log = NDWR.Logging.LogManager.GetLogger(typeof(AttributeServiceScanner));
 
         private string _assembly;
 
@@ -31,7 +32,7 @@ namespace NDWR.ServiceScanner {
             Azzembly = new string[] { assembly };
             Services = new ServiceScanner(this).ScanService();
             // 保存代理类
-            NDWR.ByteCode.ServiceProxyByteCode.SaveAssembly();
+            //NDWR.ByteCode.ServiceProxyByteCode.SaveAssembly();
         }
 
 
@@ -39,6 +40,31 @@ namespace NDWR.ServiceScanner {
 
         public string[] Azzembly { get; private set; }
 
+
+        public Service GetService(string serviceName) {
+            int length = Services.Length;
+            for (int i = 0; i < length; i++) {
+                if (Services[i].Name == serviceName) {
+                    return Services[i];
+                }
+            }
+            return null;
+        }
+
+        public ServiceMethod GetMethod(string serviceName, string methodName) {
+            Service service = GetService(serviceName);
+            if (service == null) {
+                return null;
+            }
+            ServiceMethod[] methods = service.PublicMethod;
+            int length = methods.Length;
+            for (int i = 0; i < length; i++) {
+                if (methods[i].Name == methodName) {
+                    return methods[i];
+                }
+            }
+            return null;
+        }
 
         /// <summary>
         /// 匹配注解
@@ -96,8 +122,10 @@ namespace NDWR.ServiceScanner {
                 }
                 IList<Service> serviceList = new List<Service>(); // 定义结构图
                 MethodScanner methodScanner = new MethodScanner(owner);
-                int serviceId = 0;
-                foreach (Type type in types) {// 遍历所有类型
+                Type type;
+                //
+                for(int i =0; i< types.Length; i++){
+                    type = types[i];
                     object[] attrs = type.GetCustomAttributes(false); // 获取注解
                     Service service = owner.matchingAttribute<Service>(attrs, typeof(RemoteServiceAttribute), attribute => {
                         RemoteServiceAttribute ajaxServiceAttr = (RemoteServiceAttribute)attribute;
@@ -115,7 +143,7 @@ namespace NDWR.ServiceScanner {
                         );
                     });
                     if (service != null) {
-                        service.Id = serviceId++; // 添加ID
+                        service.Id = i; // 添加ID
                         serviceList.Add(service);
                     }
                 }
@@ -141,8 +169,10 @@ namespace NDWR.ServiceScanner {
                 MethodInfo[] methods = type.GetMethods(); // 获取成员方法
                 IList<ServiceMethod> actions = new List<ServiceMethod>(); // 实例化Action集合
                 ParamScanner paramScanner = new ParamScanner();
-                int methodId = 0;
-                foreach (MethodInfo method in methods) {
+                MethodInfo method;
+
+                for(int i=0; i<methods.Length; i++){
+                    method = methods[i];
                     if (!isLegalMethod(method)) { // 不是有效方法
                         continue;
                     }
@@ -158,7 +188,7 @@ namespace NDWR.ServiceScanner {
                         return sm;
                     }); // 匹配注解
                     if (serviceMethod != null) {
-                        serviceMethod.Id = methodId++;
+                        serviceMethod.Id = i;
                         actions.Add(serviceMethod);
                     }
                 }
@@ -189,7 +219,10 @@ namespace NDWR.ServiceScanner {
                 }
                 //遍历参数
                 IList<ServiceMethodParam> paramList = new List<ServiceMethodParam>();
-                foreach (ParameterInfo parameterInfo in parameterInfos) {
+                ParameterInfo parameterInfo;
+
+                for(int i=0; i < parameterInfos.Length; i++){
+                    parameterInfo = parameterInfos[i];
                     ServiceMethodParam paramInfo = new ServiceMethodParam(
                         parameterInfo.Name,
                         parameterInfo.ParameterType);
@@ -199,5 +232,7 @@ namespace NDWR.ServiceScanner {
                 return paramList.ToArray();
             }
         }
+
+
     }
 }

@@ -7,15 +7,14 @@ namespace NDWR.MethodInterceptor {
         public void Init() {
         }
 
-        public object Intercept(MethodInvocation methodInvoke) {
+        public void Intercept(Invocation methodInvoke) {
             try {
-                return methodInvoke.Invoke();
+                methodInvoke.Invoke();
             } catch (Exception ex) {
-                methodInvoke.InvokeInfo.SystemErrors.Add(
+                methodInvoke.SystemErrors.Add(
                     new RspError(SystemError.ServiceException, ex.Message)
                 );
                 //throw ex;
-                return null;
             }
         }
 

@@ -25,6 +25,7 @@ namespace NDWR.Web {
         public const string EXCEL = "application/vnd.ms-excel";
         public const string ZIP = "application/x-zip-compressed";
         public readonly string ID;
+
         /// <summary>
         /// 默认构造
         /// </summary>
@@ -51,7 +52,7 @@ namespace NDWR.Web {
         /// </summary>
         /// <param name="postFile"></param>
         public TransferFile(HttpPostedFile postFile) {
-            this.FileName = postFile.FileName;
+            this.FileName = System.IO.Path.GetFileName( postFile.FileName);
             this.ContentType = postFile.ContentType;
             this.DataStream = postFile.InputStream;
             this.ContentLength = postFile.ContentLength;

@@ -23,14 +23,16 @@ using NDWR.ServiceScanner;
     /// </summary>
     public class GlobalConfig {
 
-        private static GlobalConfig config = new GlobalConfig();
+        private static readonly GlobalConfig config = new GlobalConfig();
 
         private GlobalConfig() {
             Interceptors = new List<Interceptor>();
-            HttpRequest request = HttpContext.Current.Request;
-            BasePath = request.Url.Scheme + "://" +
-                request.Url.Host + ":" + request.Url.Port.ToString() +
-                request.ApplicationPath + "/";
+            //HttpRequest request = HttpContext.Current.Request;
+            //BasePath = request.Url.Scheme + "://" +
+            //    request.Url.Host + ":" + request.Url.Port.ToString() +
+            //    request.ApplicationPath + "/";
+            //BasePath = request.ApplicationPath == "/" || string.IsNullOrEmpty(request.ApplicationPath) ?
+            //    string.Empty : request.ApplicationPath + "/";
         }
 
         public static GlobalConfig Instance {
@@ -55,7 +57,7 @@ using NDWR.ServiceScanner;
             // 添加基础类型参数映射
             Interceptors.Add(new ExceptionInterceptor()); // 异常捕获
             Interceptors.Add(new ParamConvertInterceptor()); // 参数转换
-            Interceptors.Add(new DownloadInterceptor()); // 输出模版
+            Interceptors.Add(new DownloadInterceptor()); // 下载拦截
 
         }
 
@@ -82,7 +84,13 @@ using NDWR.ServiceScanner;
         /// <summary>
         /// 服务器路径
         /// </summary>
-        public string BasePath { get; private set; }
+        public string BasePath {
+            get {
+                HttpRequest request = HttpContext.Current.Request;
+                return request.ApplicationPath == "/" || string.IsNullOrEmpty(request.ApplicationPath) ?
+                    string.Empty : request.ApplicationPath + "/";
+            }
+        }
         /// <summary>
         /// 调试模式
         /// </summary>

@@ -5,10 +5,9 @@ using System.Text;
 using System.Web;
 
 namespace NDWR.Web {
-    public interface IResponse {
 
-        HttpResponse Response { get; }
-        InvocationBatch InvokeBatch { set; }
+    public interface IResponse {
+        ContextSupport Context { get; }
         void WriteResult();
     }
 }

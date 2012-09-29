@@ -44,18 +44,21 @@ D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Release\NDWR.pdb
 D:\system_library\My Document\GitHub\NDWR\RemoteService\obj\Release\RemoteService.csprojResolveAssemblyReference.cache
 D:\system_library\My Document\GitHub\NDWR\RemoteService\obj\Release\RemoteService.dll
 D:\system_library\My Document\GitHub\NDWR\RemoteService\obj\Release\RemoteService.pdb
-E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\RemoteService.dll
-E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\RemoteService.pdb
-E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\NDWR.dll
-E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\NHibernate.dll
-E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\NHibernate.Validator.dll
-E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\NDWR.pdb
-E:\GitHubRepository\NewNDWR\NDWR\RemoteService\obj\Release\ResolveAssemblyReference.cache
-E:\GitHubRepository\NewNDWR\NDWR\RemoteService\obj\Release\RemoteService.dll
-E:\GitHubRepository\NewNDWR\NDWR\RemoteService\obj\Release\RemoteService.pdb
-E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\RemoteEntity.dll
-E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\RemoteEntity.pdb
-E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\Newtonsoft.Json.dll
 D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Release\RemoteEntity.dll
 D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Release\Newtonsoft.Json.dll
 D:\system_library\My Document\GitHub\NDWR\RemoteService\bin\Release\RemoteEntity.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\RemoteService.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\RemoteService.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\NDWR.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\NHibernate.Validator.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\RemoteEntity.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\log4net.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\Newtonsoft.Json.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\NHibernate.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\NDWR.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\RemoteEntity.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\log4net.xml
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Release\Newtonsoft.Json.xml
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\obj\Release\ResolveAssemblyReference.cache
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\obj\Release\RemoteService.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\obj\Release\RemoteService.pdb

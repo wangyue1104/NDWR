@@ -62,7 +62,6 @@
     <Compile Include="ByteCode\IServiceProxy.cs" />
     <Compile Include="ByteCode\ServiceProxyByteCode.cs" />
     <Compile Include="InvocationManager\RspError.cs" />
-    <Compile Include="InvocationManager\TaskMode.cs" />
     <Compile Include="JavaScript\CoreJavaScript.cs" />
     <Compile Include="JsonSerializer\NewtonsoftJsonSerializerImpl.cs" />
     <Compile Include="Logging\ILog.cs" />
@@ -81,20 +80,17 @@
     <Compile Include="Config\GlobalConfig.cs" />
     <Compile Include="MethodInterceptor\Interceptor.cs" />
     <Compile Include="MethodInterceptor\ParamConvertInterceptor.cs" />
-    <Compile Include="InvocationManager\MethodInvocationManager.cs" />
     <Compile Include="Util\TypeHelper.cs" />
     <Compile Include="Web\Handler\CoreJavaScriptHandler.cs" />
     <Compile Include="Web\Handler\DownloadHandler.cs" />
     <Compile Include="Web\Handler\JavascriptHandler.cs" />
     <Compile Include="Web\Handler\HandlerFactory.cs" />
     <Compile Include="Web\Handler\ServiceJavaScriptHandler.cs" />
-    <Compile Include="Web\Response\BinaryResponse.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Web\IRequest.cs" />
+    <Compile Include="Web\Request\StdRequest.cs" />
     <Compile Include="Web\Handler\RemoteHandler.cs" />
     <Compile Include="JsonSerializer\DataContractJsonSerializerImpl.cs" />
     <Compile Include="JsonSerializer\IJsonSerializer.cs" />
-    <Compile Include="JsonSerializer\JsonSerializerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceScanner\IServiceScanner.cs" />
     <Compile Include="ServiceScanner\XMLServiceScanner.cs" />
@@ -103,9 +99,7 @@
     <Compile Include="Web\ContextSupport.cs" />
     <Compile Include="InvocationManager\Invocation.cs" />
     <Compile Include="Web\Response\ResponseFactory.cs" />
-    <Compile Include="Web\StdRequest.cs" />
     <Compile Include="Web\Response\JsonRespose.cs" />
-    <Compile Include="InvocationManager\MethodInvocation.cs" />
     <Compile Include="Web\IResponse.cs" />
     <Compile Include="Web\Response\NullResponse.cs" />
     <Compile Include="InvocationManager\ParamItem.cs" />
@@ -114,7 +108,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ndwrcore.js" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Readme.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

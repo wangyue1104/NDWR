@@ -23,11 +23,11 @@ namespace NDWR.Web {
     /// </summary>
     public class ResponseFactory {
 
-        public static IResponse Get(string transferMode, HttpResponse response) {
+        public static IResponse Get(string transferMode, ContextSupport context) {
             if (string.IsNullOrEmpty(transferMode) || transferMode == "scriptTag") {
-                return new JsonRespose(response);
+                return new JsonRespose(context);
             } else if (transferMode == "iframe") {
-                return new JsonRespose(response, true);
+                return new JsonRespose(context, true);
             } else {
                 return new NullResponse();
             }

@@ -33,7 +33,7 @@ namespace NDWR.ServiceStruct {
 
             //this.ServiceProxy = new ServiceProxyByteCode(this).BuildProxy();
             this.ProxyFunc = new ServiceProxyByteCode(this).ProxyCreateFunc();
-            this.proxy = this.Singleton ? null : this.ProxyFunc();
+            //this.proxy = this.Singleton ? null : this.ProxyFunc();
 
             this.JavaScript = RemoteServiceScript.Instance.BuildServiceJS(this);
 

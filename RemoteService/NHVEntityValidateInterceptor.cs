@@ -26,25 +26,25 @@ namespace RemoteService {
         public void Init() {
         }
 
-        public object Intercept(MethodInvocation methodInvoke) {
-            IList<ServiceMethodParam> paramList = methodInvoke.InvokeInfo.MethodMetaData.Params;
+        public void Intercept(Invocation methodInvoke) {
+            IList<ServiceMethodParam> paramList = methodInvoke.MethodMetaData.Params;
             int index = 0;
             foreach (ServiceMethodParam param in paramList) {
                 if (param.TypeCategory == TypeCategory.EntityType) {
-                    object retValue = methodInvoke.InvokeInfo.ParamValues[index].TarValue;
+                    object retValue = methodInvoke.ParamValues[index].TarValue;
                     InvalidValue[] msgs = NHVHelper.Instance.Validate(retValue);
                     //if (!NHVHelper.Instance.IsValid(retValue)) {
                     if (msgs.Length > 0) {
                         foreach (InvalidValue iv in msgs) {
-                            methodInvoke.InvokeInfo.SystemErrors.Add(
+                            methodInvoke.SystemErrors.Add(
                                 new RspError(iv.PropertyName, iv.Message));
                         }
-                        return null;
+                        return;
                     }
                 }
                 index++;
             }
-            return methodInvoke.Invoke();
+            methodInvoke.Invoke();
         }
 
         public void Destroy() {

@@ -40,7 +40,7 @@ namespace NDWR.Web {
 
         public IResponse Response { get; private set; }
 
-        public StdRequest Request { get; private set; }
+        public IRequest Request { get; private set; }
 
         /// <summary>
         /// 构造函数
@@ -52,7 +52,7 @@ namespace NDWR.Web {
             // 初始化请求，收集参数
             Request = new StdRequest(HttpContext.Request);
             // 生成输出模板
-            Response = ResponseFactory.Get(Request.TransferMode, HttpContext.Response);
+            Response = ResponseFactory.Get(Request.TransferMode, this);
         }
 
         /// <summary>
@@ -60,15 +60,19 @@ namespace NDWR.Web {
         /// </summary>
         /// <returns></returns>
         public void ProcessRequest() {
-            MethodInvocationManager.Instance.BatchInvoke(Request.InvokeBatch);
-            Response.InvokeBatch = Request.InvokeBatch;
+            var batchInvoke = Request.BatchInvoke;
+            for (int i = 0; i < batchInvoke.Length; i++) {
+                batchInvoke[i].Invoke();
+            }
         }
+
         /// <summary>
         /// 完成输出
         /// </summary>
         public void CompleteRequest() {
             HttpContext.ApplicationInstance.CompleteRequest();
         }
+
     }
 
 }

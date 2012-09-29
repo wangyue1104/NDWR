@@ -9,6 +9,7 @@ using RemoteService;
 using NUnit.Framework;
 using System.Runtime.ConstrainedExecution;
 using RemoteEntity;
+using NDWR.Util;
 
 namespace NDWRTest {
 
@@ -18,6 +19,34 @@ namespace NDWRTest {
         [Test]
         public void BuildTest() {
             new EmitCodeDemo().ddd();
+        }
+
+        [Test]
+        public void TTest() {
+            object[] d = new object[1];
+            d[0] = null;
+            dsd(d);
+        }
+
+        public void dsd(object[] d) {
+            if (d[0] != null) {
+                System.Console.WriteLine(d[0]);
+            }
+        }
+
+        [Test]
+        public void KitTest() {
+
+            string[] ss = {"s","d"};
+            Kit.Each<string>(ss, (item, index) => {
+                System.Console.WriteLine(item);
+            });
+
+
+            IList<string> list = new List<string>() { "a", "x" };
+            Kit.Each<string>(list, (item, index) => {
+                System.Console.WriteLine(item);
+            });
         }
     }
 

@@ -29,7 +29,4 @@ namespace NDWR.ServiceStruct {
         public TypeCategory TypeCategory { get; private set; }
     }
 
-
-    
-
 }

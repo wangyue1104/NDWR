@@ -66,3 +66,4 @@ E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\log4net.dll
 E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\log4net.xml
 E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\Newtonsoft.Json.xml
 D:\system_library\Desktop\NDWR\RemoteService\bin\Debug\NHibernate.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteService\bin\Debug\NHibernate.dll

@@ -27,7 +27,7 @@ namespace NDWR.JavaScript {
 
         public const string extName = ".ashx"; // 拦截的请求扩展名
         public const string coreJSName = "ndwrcore" + extName; // 核心脚本映射文件名
-        public const string remoteService = "remote" + extName; // 远程提交请求映射文件名
+        public const string remoteService = "ndwremote" + extName; // 远程提交请求映射文件名
         /// <summary>
         /// 核心JS脚本
         /// </summary>

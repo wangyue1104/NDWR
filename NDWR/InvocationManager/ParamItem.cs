@@ -16,19 +16,24 @@ namespace NDWR {
     /// ParamItem 参数记录
     /// </summary>
     public class ParamItem {
-        public ParamItem(int id, string value) {
+        public ParamItem(int id, int methodId,string value) {
             this.Id = id;
+            this.MethodId = methodId;
             this.SrcValue = value;
         }
 
         /// <summary>
         /// Id 用于排序
         /// </summary>
-        public int Id { get; set; }
+        public int Id { get; private set; }
+        /// <summary>
+        /// 对应的方法ID
+        /// </summary>
+        public int MethodId { get; private set; }
         /// <summary>
         /// 接收用户传输的值
         /// </summary>
-        public string SrcValue { get; set; }
+        public string SrcValue { get; private set; }
         /// <summary>
         /// 目标方法对应的值
         /// </summary>

@@ -18,6 +18,7 @@ namespace NDWR.MethodInterceptor {
     using NDWR.Validator;
     using NDWR.Web;
     using NDWR.InvocationManager;
+    using NDWR.Util;
 
     /// <summary>
     /// SimpleParamConvertInterceptor 概要
@@ -26,38 +27,38 @@ namespace NDWR.MethodInterceptor {
         public void Init() {
         }
 
-        public object Intercept(MethodInvocation methodInvoke) {
+        public void Intercept(Invocation methodInvoke) {
 
-            var paramValues = methodInvoke.InvokeInfo.ParamValues; // 用户输入参数源信息
-            var paramMetas = methodInvoke.InvokeInfo.MethodMetaData.Params; // 服务端方法参数信息
+            var paramValues = methodInvoke.ParamValues; // 用户输入参数源信息
+            var paramMetas = methodInvoke.MethodMetaData.Params; // 服务端方法参数信息
             // 参数个数映射不符
             if (paramValues.Length != paramMetas.Length) { // 两个参数理论不会为null
-                methodInvoke.InvokeInfo.SystemErrors.Add(new RspError() {
+                methodInvoke.SystemErrors.Add(new RspError() {
                     Name = SystemError.NoMatchParam.ToString(),
                     Message = "参数不匹配"
                 });
-                return null;
+                return;
             }
             // 设置参数
             if (!setParamValue(methodInvoke)) {
-                return null;
+                return ;
             }
             // 执行目标方法
-            return methodInvoke.Invoke();
+            methodInvoke.Invoke();
         }
 
         public void Destroy() {
         }
 
-        private bool setParamValue(MethodInvocation methodInvoke) {
+        private bool setParamValue(Invocation methodInvoke) {
             // 执行快照中的参数信息
-            ParamItem[] valParams = methodInvoke.InvokeInfo.ParamValues;
+            ParamItem[] valParams = methodInvoke.ParamValues;
             // 参数元数据信息
-            ServiceMethodParam[] mdParams = methodInvoke.InvokeInfo.MethodMetaData.Params;
+            ServiceMethodParam[] mdParams = methodInvoke.MethodMetaData.Params;
             // 参数个数
             int paramLength = mdParams.Length;
             // 错误信息集合
-            IList<RspError> systemErrors = methodInvoke.InvokeInfo.SystemErrors;
+            IList<RspError> systemErrors = methodInvoke.SystemErrors;
             // 循环体用到临时变量
             ParamItem valParam;
             ServiceMethodParam mdParam;
@@ -67,7 +68,7 @@ namespace NDWR.MethodInterceptor {
             for (int i = 0; i < paramLength; i++) {
                 valParam = valParams[i];
                 mdParam = mdParams[i];
-
+                
                 try {
                     retValue = GlobalConfig.Instance.JsonSerializer.Deserialize(
                         valParam.SrcValue,
@@ -81,7 +82,7 @@ namespace NDWR.MethodInterceptor {
                 }
 
                 if (mdParam.TypeCategory == TypeCategory.BinaryType) { // 输入流方式，则返回输入流类型值
-                    retValue = methodInvoke.InvokeInfo.BatchOwner.Get(retValue.ToString());
+                    retValue = methodInvoke.Request.GetFlie(retValue.ToString());
                 }
                 // 转换成功 进行赋值
                 valParam.TarValue = retValue;

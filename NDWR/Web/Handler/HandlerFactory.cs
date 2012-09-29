@@ -39,7 +39,7 @@ namespace NDWR.Web.Handler {
         }
 
         private IHttpHandler requestType_POST(string fileName) {
-            if (fileName == "remote") {
+            if (fileName == "ndwremote") {
                 return new RemoteHandler();
             }
             throw error404();

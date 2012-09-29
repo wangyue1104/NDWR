@@ -108,7 +108,7 @@ namespace RemoteService {
         [RemoteMethod]
         public TransferFile DownLoadFile(Entity entity) {
             return new TransferFile() {
-                FileName = "dd..xls",
+                FileName = "dd.xls",
                 ContentType = TransferFile.EXCEL,
                 DataBuffer = new byte[] { 11, 22 }
             };
@@ -164,7 +164,6 @@ namespace RemoteService {
         /// 每页显示的数量
         /// </summary>
         public int iDisplayLength { get; set; }
-
         /// <summary>
         /// 分页时每页跨度数量
         /// </summary>

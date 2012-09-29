@@ -28,5 +28,14 @@ namespace NDWR.ServiceScanner {
         Service[] IServiceScanner.Services {
             get { throw new NotImplementedException(); }
         }
+
+
+        public Service GetService(string serviceName) {
+            throw new NotImplementedException();
+        }
+
+        public ServiceMethod GetMethod(string serviceName, string methodName) {
+            throw new NotImplementedException();
+        }
     }
 }

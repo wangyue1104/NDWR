@@ -22,10 +22,13 @@ D:\system_library\My Document\GitHub\NDWR\NDWR\bin\Release\NDWR.pdb
 D:\system_library\My Document\GitHub\NDWR\NDWR\obj\Release\NDWR.dll
 D:\system_library\My Document\GitHub\NDWR\NDWR\obj\Release\NDWR.pdb
 D:\system_library\My Document\GitHub\NDWR\NDWR\obj\Release\NDWR.csprojResolveAssemblyReference.cache
+D:\system_library\My Document\GitHub\NDWR\NDWR\bin\Release\Newtonsoft.Json.dll
 E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Release\NDWR.dll
 E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Release\NDWR.pdb
+E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Release\log4net.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Release\Newtonsoft.Json.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Release\log4net.xml
+E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Release\Newtonsoft.Json.xml
 E:\GitHubRepository\NewNDWR\NDWR\NDWR\obj\Release\ResolveAssemblyReference.cache
 E:\GitHubRepository\NewNDWR\NDWR\NDWR\obj\Release\NDWR.dll
 E:\GitHubRepository\NewNDWR\NDWR\NDWR\obj\Release\NDWR.pdb
-E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Release\Newtonsoft.Json.dll
-D:\system_library\My Document\GitHub\NDWR\NDWR\bin\Release\Newtonsoft.Json.dll

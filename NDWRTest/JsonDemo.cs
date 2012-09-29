@@ -20,6 +20,7 @@ namespace SmartAjaxTest {
         public DateTime Expiry { get; set; }
         public decimal Price { get; set; }
         public string[] Sizes { get; set; }
+        public int[] Ids { get; set; }
         public object Include { get; set; }
     }
 
@@ -36,11 +37,12 @@ namespace SmartAjaxTest {
             product.Expiry = new DateTime(2008, 12, 28);
             product.Price = 3.99M;
             product.Sizes = new string[] { "Small", "Medium", "Large" };
+            product.Ids = new int[] { 1,3,4};
             product.Include = new ReturnDemo() { ID= 1, Name = "123" };
             string json = JavaScriptConvert.SerializeObject(product);
-            JavaScriptConvert.SerializeObject(1);
-            //System.Console.WriteLine(json);
-            System.Console.WriteLine(DateTime.Now.ToString());
+            //JavaScriptConvert.SerializeObject(1);
+            System.Console.WriteLine(json);
+            //System.Console.WriteLine(DateTime.Now.ToString());
         }
         [Test]
         public void DeserializeTest() {

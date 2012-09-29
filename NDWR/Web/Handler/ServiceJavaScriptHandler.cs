@@ -1,5 +1,6 @@
 ﻿using NDWR.Config;
 using NDWR.ServiceStruct;
+using NDWR.Util;
 
 namespace NDWR.Web.Handler {
 
@@ -14,13 +15,18 @@ namespace NDWR.Web.Handler {
         public override string Javascript {
             get {
                 Service[] services = GlobalConfig.Instance.ServiceScanner.Services;
-                foreach (Service service in services) {
-                    if (service.Name == fileName) {
-                        return service.JavaScript;
-                    }
-                }
+                var service = Kit.Each<Service>(services, item => item.Name == fileName);
+                return service == null ?
+                    string.Empty :
+                    service.JavaScript;
 
-                return string.Empty;
+                //foreach (Service service in services) {
+                //    if (service.Name == fileName) {
+                //        return service.JavaScript;
+                //    }
+                //}
+
+                //return string.Empty;
             }
         }
     }

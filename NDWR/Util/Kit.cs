@@ -13,12 +13,90 @@
 namespace NDWR.Util {
     using System;
     using System.Web;
+    using System.Collections;
+    using System.Collections.Generic;
 
     /// <summary>
     /// NDWR工具类
     /// 转移用户对Http系列类使用
     /// </summary>
     public class Kit {
+        /// <summary>
+        /// 遍历集合，数组
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="act"></param>
+        public static void Each<T>(IList<T> list, Action<T> act) {
+            if (list == null) {
+                return;
+            }
+            for (int i = 0; i < list.Count; i++) {
+                act(list[i]);
+            }
+        }
+        public static void Each<T>(IList<T> list,Action<T,int> act) {
+            if (list == null) {
+                return;
+            }
+            for (int i = 0; i < list.Count; i++) {
+                act(list[i], i);
+            }
+        }
+
+        public static void Each<T>(IList<T> list, Func<T, int,bool> f) {
+            if (list == null) {
+                return;
+            }
+            for (int i = 0; i < list.Count; i++) {
+                if (!f(list[i], i)) {
+                    return;
+                }
+            }
+        }
+
+        public static T Each<T>(IList<T> list, Func<T, bool> f) {
+            if (list == null) {
+                return default(T);
+            }
+            for (int i = 0; i < list.Count; i++) {
+                if (f(list[i])) {
+                    return list[i];
+                }
+            }
+            return default(T);
+        }
+
+        //public static T Each<T>(IList<T> list, Func<T, bool> f) {
+        //    if (list == null) {
+        //        return default(T);
+        //    }
+        //    for (int i = 0; i < list.Count; i++) {
+        //        if (!f(list[i])) {
+        //            return list[i];
+        //        }
+        //    }
+        //    return default(T);
+        //}
+
+        public static void Each<T1, T2>(IList<T1> list1, IList<T2> list2, Action<T1, T2, int> act) {
+            if (list1 == null || list2 == null || list2.Count != list2.Count) {
+                return;
+            }
+
+            for (int i = 0; i < list1.Count; i++) {
+                act(list1[i], list2[i], i);
+            }
+        }
+
+        public static void Sort<T>(IList<T> list, Func<T, bool> cb) {
+            if (list == null) {
+                return;
+            }
+            for (int i = 0; i < list.Count; i++) {
+                
+            }
+        }
 
         /// <summary>
         /// 获取session
@@ -67,7 +145,7 @@ namespace NDWR.Util {
             HttpContext.Current.Cache[key] = value;
         }
         public static void SetAbsCache<T>(string key, T value) {
-            HttpContext.Current.Cache.Insert(key, value, null, DateTime.Now.AddMinutes(10), TimeSpan.Zero);
+            HttpContext.Current.Cache.Insert(key, value, null, DateTime.Now.AddMinutes(10), System.Web.Caching.Cache.NoSlidingExpiration);
         }
 
     }

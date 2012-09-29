@@ -21,17 +21,16 @@ namespace NDWR.MethodInterceptor {
         public void Init() {
         }
 
-        public object Intercept(MethodInvocation methodInvoke) {
+        public void Intercept(Invocation methodInvoke) {
             // 执行目标方法
-            object rtValue = methodInvoke.Invoke();
+            methodInvoke.Invoke();
             // 如果输出流方式或包含输出流方式
-            if (methodInvoke.InvokeInfo.MethodMetaData.OutputType == TypeCategory.BinaryType) { 
-                TransferFile tfile = ((TransferFile)rtValue);
-                NDWR.Util.Kit.SetCache(tfile.ID, tfile);
-                rtValue = tfile.ID;
+            if (methodInvoke.MethodMetaData.OutputType == TypeCategory.BinaryType) {
+                TransferFile tfile = ((TransferFile)methodInvoke.RetValue);
+                NDWR.Util.Kit.SetAbsCache(tfile.ID, tfile);
+                methodInvoke.RetValue = tfile.ID;
             }
 
-            return rtValue;
         }
 
         public void Destroy() {

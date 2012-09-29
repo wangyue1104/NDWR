@@ -26,5 +26,9 @@ namespace NDWR.ServiceScanner {
         /// 获取服务所属程序集名称
         /// </summary>
         string[] Azzembly { get; }
+
+        Service GetService(string serviceName);
+
+        ServiceMethod GetMethod(string serviceName, string methodName);
     }
 }

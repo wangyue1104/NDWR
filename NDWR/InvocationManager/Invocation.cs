@@ -17,81 +17,33 @@ namespace NDWR {
     using System.Web;
     using NDWR.InvocationManager;
     using NDWR.ServiceStruct;
-
-    /// <summary>
-    /// 批量执行是全局信息
-    /// 该类实例伴随整个回话执行流程
-    /// 作为回话处理状态的快照
-    /// </summary>
-    public class InvocationBatch {
-
-        public InvocationBatch(string batchID, Invocation[] invokes, HttpFileCollection files) {
-            this.BatchId = batchID;
-            this.Invokes = invokes;
-            this.Files = files;
-
-            foreach (Invocation invoke in this.Invokes) {
-                invoke.BatchOwner = this;
-            }
-        }
-
-        /// <summary>
-        /// 根据key获取文件
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public TransferFile Get(string key) {
-            if (string.IsNullOrWhiteSpace(key)) {
-                return null;
-            }
-            HttpPostedFile PostFile = this.Files["ndwr_file_" + key];
-            if (PostFile == null) {
-                return null;
-            }
-            return new TransferFile(PostFile);
-        }
-
-
-        /// <summary>
-        /// 批次号
-        /// </summary>
-        public string BatchId { get; private set; }
-        /// <summary>
-        /// 批次执行集合
-        /// </summary>
-        public Invocation[] Invokes { get; private set; }
-        /// <summary>
-        /// 上传文件
-        /// </summary>
-        public HttpFileCollection Files { get; private set; }
-        /// <summary>
-        /// 输出模版
-        /// </summary>
-        public IResponse Response { get; set; }
-
-    }
+    using NDWR.Util;
+    using NDWR.MethodInterceptor;
+    using NDWR.Config;
+    using NDWR.ByteCode;
 
     /// <summary>
     /// 用户执行公开方法时的执行信息
     /// </summary>
     public class Invocation {
+        private static readonly NDWR.Logging.ILog log = NDWR.Logging.LogManager.GetLogger(typeof(Invocation));
 
-        public Invocation(int methodIndex, ServiceMethod methodMetaData, ParamItem[] paramValues) {
+        private int i = 0;// 拦截器递归调用计数器
+        private IList<Interceptor> interceptorList = GlobalConfig.Instance.Interceptors; // 获取拦截器集合
 
+        public Invocation(int methodIndex, ServiceMethod methodMetaData, ParamItem[] ParamItems,IRequest request) {
             MethodIndex = methodIndex;
             MethodMetaData = methodMetaData;
-            ParamValues = paramValues;
-            //this.TarParamValues = (from item in ParamValues
-            //                       select item.TarValue).ToArray();
             // 初始化集合
+            ParamValues = ParamItems;
+            this.Request = request;
             SystemErrors = new List<RspError>();
         }
 
         /// <summary>
-        /// 
+        /// 本次请求
         /// </summary>
-        public InvocationBatch BatchOwner { get; set; }
-
+        public IRequest Request { get; private set; }
         /// <summary>
         /// 在批量调用中顺序的索引
         /// </summary>
@@ -122,11 +74,40 @@ namespace NDWR {
         /// 方法返回值
         /// </summary>
         public object RetValue { get; set; }
-        /// <summary>
-        /// 输出模版
-        /// </summary>
-        public IResponse Response { get; set; }
 
+
+
+        /// <summary>
+        /// 执行目标方法
+        /// 递归执行拦截器，最会执行目标的代理方法
+        /// </summary>
+        /// <returns></returns>
+        public void Invoke() {
+            if (i >= interceptorList.Count) { // 如果拦截器已经执行完，执行目标方法
+                this.RetValue = InvokeProxy();
+                return;
+            }
+            // 递归调用拦截器
+            interceptorList[i++].Intercept(this);
+        }
+
+
+        /// <summary>
+        /// 单一方法执行
+        /// </summary>
+        /// <param name="invokeInfo"></param>
+        /// <param name="method"></param>
+        private object InvokeProxy() {
+
+            log.DebugFormat("执行目标方法{0}.{1}", MethodMetaData.OwnerService.Name, MethodMetaData.Name);
+
+            // 获取目标服务的桥接器
+            IServiceProxy proxy = MethodMetaData.OwnerService.ServiceProxy;
+            return proxy.FuncSwitch(
+                        MethodMetaData.Id,
+                        TarParamValues
+                    );
+        }
     }
 
 }

@@ -34,11 +34,13 @@ namespace NDWR.Web {
         private readonly string ndwrVariableHost = string.Empty; // ndwr变量宿主
         private readonly string contentType = "text/plain";
 
-        public JsonRespose(HttpResponse response) {
-            Response = response;
+        public JsonRespose(ContextSupport context) {
+            this.Context = context;
         }
-        public JsonRespose(HttpResponse response,bool isIframe) {
-            Response = response;
+
+        public JsonRespose(ContextSupport context, bool isIframe) {
+            this.Context = context;
+
             this.isIframe = isIframe;
             if (isIframe) {
                 prefixScriptNode = "<script type=\"text/javascript\">\r\n";
@@ -48,30 +50,27 @@ namespace NDWR.Web {
             }
         }
 
-        /// <summary>
-        /// Web设备上下文
-        /// </summary>
-        public HttpResponse Response { get; private set; }
-        /// <summary>
-        /// 执行信息列表
-        /// </summary>
-        public InvocationBatch InvokeBatch { get; set; }
+        public ContextSupport Context { get; private set; }
+
         /// <summary>
         /// 构造结果集
         /// </summary>
         protected void buildResult() {
-            if (Response == null || InvokeBatch == null) {
-                throw new NDWRException("输出时参数不完整");
-            }
+            Invocation[] BatchInvoke = Context.Request.BatchInvoke;
+            Invocation invokeInfo;
+            string batchId = this.Context.Request.BatchId;
 
             StringBuilder jsInvoke = new StringBuilder(prefixScriptNode);
             jsInvoke.Append("/*NDWR's reply*/\r\n");
 
-            foreach (Invocation invokeInfo in InvokeBatch.Invokes) {
-                jsInvoke.AppendFormat("\r\n/*{0}.{1}*/\r\n", invokeInfo.MethodMetaData.OwnerService.Name, invokeInfo.MethodMetaData.Name);
+            for(int i=0; i< BatchInvoke.Length; i++){
+                invokeInfo = BatchInvoke[i];
+                jsInvoke.AppendFormat("\r\n/*{0}.{1}*/\r\n", 
+                    invokeInfo.MethodMetaData.OwnerService.Name, 
+                    invokeInfo.MethodMetaData.Name);
                 jsInvoke.AppendFormat("{0}ndwr.handleCallback({1},{2},{3}{4});\r\n",
                     ndwrVariableHost,
-                    InvokeBatch.BatchId,
+                    batchId,
                     invokeInfo.MethodIndex,
                     invokeInfo.RetValue == null ? 
                         "null" :
@@ -87,16 +86,17 @@ namespace NDWR.Web {
 
 
         private void ResponseResult() {
-            Response.Clear();
-            Response.ContentType = contentType;
-            Response.ContentEncoding = System.Text.Encoding.GetEncoding("UTF-8");
-            Response.Write(jsonResult);
+            HttpResponse response = Context.HttpContext.Response;
+            response.Clear();
+            response.ContentType = contentType;
+            response.ContentEncoding = System.Text.Encoding.GetEncoding("UTF-8");
+            response.Write(jsonResult);
         }
 
         public virtual void WriteResult() {
             buildResult();
             ResponseResult();
         }
-
+        
     }
 }

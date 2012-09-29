@@ -43,3 +43,4 @@ D:\system_library\Desktop\NDWR\NDWR\bin\Debug\Newtonsoft.Json.xml
 E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Debug\log4net.dll
 E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Debug\log4net.xml
 E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Debug\Newtonsoft.Json.xml
+D:\system_library\Desktop\NDWR\NDWR\obj\Debug\NDWR.csprojResolveAssemblyReference.cache
