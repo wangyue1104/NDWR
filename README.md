@@ -4,21 +4,25 @@
 DWR 包含2 个主要部分： 
 -------------------------------------------------
 
-* 1.一个运行在服务器端的HandlerFactory，它处理请求并且向浏览器发回响应。 
-* 2.运行在浏览器端的JavaScript，它发送请求而且还能动态更新网页。 
+	1.一个运行在服务器端的HandlerFactory，它处理请求并且向浏览器发回响应。 
+	
+	2.运行在浏览器端的JavaScript，它发送请求而且还能动态更新网页。 
 
 二、构建一个NDWR程序
 =================
 
-* 1.程序集：NDWR.dll ，Newtonsoft.Json.dll(json序列化依赖库)
-	
-* 2.web.config配置文件：
+	* 1.程序集：NDWR.dll ，Newtonsoft.Json.dll(json序列化依赖库)
+
+	2.web.config配置文件：
+
 		<system.web>
 			<httpHandlers>
 				<add verb="*" path="ndwr/*.ashx" type="NDWR.Web.Handler.HandlerFactory,NDWR" />
 			</httpHandlers>
 		</system.web>
-* 3.Global.asax -> Application_Start 事件
+
+	3.Global.asax -> Application_Start 事件
+
 		void Application_Start(object sender, EventArgs e) 
 		{
 			//在应用程序启动时运行的代码
@@ -26,8 +30,9 @@ DWR 包含2 个主要部分：
 			// 如果你有自己的拦截器，可以照此方式添加
 			//NDWR.Config.GlobalConfig.Instance.Interceptors.Add(new RemoteService.NHVEntityValidateInterceptor());
 		}
-	
-* 4.编写service
+
+	4.编写service
+
 	[RemoteService]
 	public class RemoteDemoNew {
 
@@ -36,8 +41,9 @@ DWR 包含2 个主要部分：
 			return "Hello World";
 		}
 	}
-	
-* 5.前台脚本
+
+	5.前台脚本
+
 		<script src="ndwr/ndwrcore.ashx" type="text/javascript"></script><!-- ndwr核心库 -->
 		<script src="ndwr/RemoteDemoNew.ashx" type="text/javascript"></script><!-- 开放服务 -->
 		<script type="text/javascript">
@@ -48,7 +54,7 @@ DWR 包含2 个主要部分：
             }
         </script>
 		<button onclick="HW()"></button>
-		
+
 三、NDWR公开服务
 =================
 
@@ -123,17 +129,17 @@ DWR 包含2 个主要部分：
 六、公开方法调用
 =================
 
-	1.  无回调调用
+	1.无回调调用
 	
 		[Service].[Method](param1,param2,...,paramx);
 		
-	2.  // 回调方法简单方式
+	2.回调方法简单方式
 	
 		[Service].[Method](param1,param2,...,paramx,function(data){
 			// do something...
 		}); 
 
-	3.  // 包含详细信息回调
+	3.包含详细信息回调
 	
 		[Service].[Method](param1,param2,...,paramx,{
 			callBack : function(data){ // 回调 必选
@@ -189,11 +195,11 @@ DWR 包含2 个主要部分：
 十、注意
 =================
 
-	1.公开的方法和服务名不能以ndwr开头
+	* 1.公开的方法和服务名不能以ndwr开头
 	
-	2.不要尝试在ndwr里注入自定义参数名，这样可能会导致解析歧义
+	* 2.不要尝试在ndwr里注入自定义参数名，这样可能会导致解析歧义
 	
-	3.方法名不要使用FuncSwitch
+	* 3.方法名不要使用FuncSwitch
 	
-	4.服务名不能重名，方法名一样
+	* 4.服务名不能重名，方法名一样
 	
