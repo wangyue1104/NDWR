@@ -36,7 +36,19 @@ if (typeof window['ndwr'] == 'undefined') {
     ndwr.errorHandler = function (errors) { };
     // 数据过滤器 
     ndwr.dataFilter = function (data, textStatus) { return true; }
-	
+    // timeout
+    //ndwr.timeout = 0;
+    // 传输模式
+    //ndwr.transferMode = 'xhr'; // xhr,iframe,scriptTag三种
+
+    // 远程执行实体结构
+    //function Batch() {
+    //    this.BatchId = ''; // 批次号
+    //    this.methodIndex = 0; // 方法索引
+    //    this.Service = ''; // 服务
+    //    this.Method = ''; // 方法
+    //    this.CallBackFunc = null; // 回调
+    //}
 
     /*
      * 初始化传输缓存内容
@@ -96,7 +108,7 @@ if (typeof window['ndwr'] == 'undefined') {
         return paramList;
     }
 
-    /**
+    /*
      * 整理用户设置的回调函数
      * callback : 回调参数类型
           1.{ callBack : function(data),errorHandler : function(errors) } 可以自定义错误回调函数
@@ -165,7 +177,7 @@ if (typeof window['ndwr'] == 'undefined') {
 		}
 	}
 	
-    /** 
+    /* 
      * 生成传输的参数
     */
     function buildTransferParams(serviceName, methodName, argList) {
@@ -254,6 +266,7 @@ if (typeof window['ndwr'] == 'undefined') {
     }
     
 
+    /************************************ ajax 使用 oracle 官网rest使用的 ajax 结构 /************************************/
     ndwr.transport = {
         url : '',
         timeout: 0,
@@ -374,6 +387,17 @@ if (typeof window['ndwr'] == 'undefined') {
             send : function(batchs, url, parameters){
                 this.ifmFunc(batchs.batchId); // 构建iframe
                 var p = this.constructRequest(parameters);
+                // 构建form
+//                var form = document.createElement("form");
+//                form.id = this.formTag(batchs.batchId);
+//                form.action = url;
+//                form.method = "post";
+//                form.target = this.ifmTag(batchs.batchId);
+//                form.style.display = "none";
+//                if (uploadCtrls.length > 0) { // 存在上传
+//                    form.enctype = "multipart/form-data";
+//                    this.moveUploadCtrls(form);
+//                }
                 // form 表单 innerHtml
                 var formHtml = "<form id='" + this.formTag(batchs.batchId) + "' action='" + url + "' target='" + this.ifmTag(batchs.batchId) + "' style='display:none;' method='post'";
                 if (uploadCtrls.length > 0) { // 如果有上传
@@ -430,6 +454,8 @@ if (typeof window['ndwr'] == 'undefined') {
             remove : function(batchId){
                 var ifmTag = document.getElementById(this.ifmTag(batchId)).parentNode;
                 var formTag = document.getElementById(this.formTag(batchId));
+                //if(ifmTag) {document.removeChild(ifmTag);}
+                //if(formTag){ document.removeChild(formTag);}
             }
 		},
         // 加载脚本文件方式，参数只能用get方式
@@ -443,6 +469,7 @@ if (typeof window['ndwr'] == 'undefined') {
             div.innerHTML = '<iframe src="ndwr/ndwrdownload.ashx?id=' + key + '" frameborder="0" style="width: 0px;height: 0px; border: 0;" ></iframe>';
         }
 	}
+ /************************************ ajax 使用 oracle 官网rest使用的 ajax 结构 /************************************/
 
     ndwr.util = {
         // 获取类型
