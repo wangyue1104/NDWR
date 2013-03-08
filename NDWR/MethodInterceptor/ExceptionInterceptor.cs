@@ -4,6 +4,7 @@ using NDWR.InvocationManager;
 namespace NDWR.MethodInterceptor {
 
     public class ExceptionInterceptor : Interceptor {
+        private static readonly NDWR.Logging.ILog log = NDWR.Logging.LogManager.GetLogger(typeof(ExceptionInterceptor).Name);
         public void Init() {
         }
 
@@ -14,6 +15,7 @@ namespace NDWR.MethodInterceptor {
                 methodInvoke.SystemErrors.Add(
                     new RspError(SystemError.ServiceException, ex.Message)
                 );
+                log.Error("ExceptionInterceptor捕获到异常", ex);
                 //throw ex;
             }
         }

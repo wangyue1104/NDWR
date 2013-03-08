@@ -21,6 +21,7 @@ namespace RemoteService {
     public class RemoteDemo {
 
         [RemoteMethod]
+        [Authority(Name="RemoteDemo_No1")]
         public void No1() {
 
         }
@@ -31,8 +32,9 @@ namespace RemoteService {
         }
 
         [RemoteMethod]
+        [Authority(Name = "RemoteDemo_PubMethod")]
         public string PubMethod(int index) {
-            throw new Exception("index 超出范围");
+            throw new Exception(string.Format("index = {0} 超出范围",index));
             //return index.ToString();
         }
 
@@ -124,7 +126,8 @@ namespace RemoteService {
                 byte[] data = new byte[file.ContentLength];
                 file.DataStream.Read(data, 0, (int)file.ContentLength);
 
-                file.SaveAs("~/Upload", file.FileName);
+                var rd = new Random(10000).Next();
+                file.SaveAs("~/Upload", rd.ToString() + file.FileName);
             }
             return "上传成功";
         }

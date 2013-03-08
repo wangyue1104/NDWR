@@ -54,9 +54,16 @@ if (typeof window['ndwr'] == 'undefined') {
      * 初始化传输缓存内容
      */
     function initTransfer() {
-        batchTransfers.data = {}; // 传输的数据
-        batchTransfers.cache = {}; // 不要使用清空数组
-		batchTransfers.cfg = {transferMode : ndwr.transport.mode, timeout : ndwr.transport.timeout }; // 初始化传输配置为全局配置
+		batchTransfers = {
+			data : {}, // 传输的数据
+			cache: {}, // 本次批量中的客户端副本 ，与上个区别是 当前存储的是一个批次，而上面存储所有批次
+			cfg : { transferMode : 'xhr', timeout : 0 }, // 传输配置
+			instance : null, // 传输实例 xhr => 异步实例 , iframe => iframe id
+			timer : null // 定时器
+		};
+        //batchTransfers.data = {}; // 传输的数据
+        //batchTransfers.cache = {}; // 不要使用清空数组
+		//batchTransfers.cfg = {transferMode : ndwr.transport.mode, timeout : ndwr.transport.timeout }; // 初始化传输配置为全局配置
     }
     // 初始化批次
     function resetBatch() {
@@ -115,8 +122,12 @@ if (typeof window['ndwr'] == 'undefined') {
           2.function(data) 直接是回调函数，错误回调默认为全局ndwr.errorHandler
      */
     function buildCallBackFunc(callbackArg) {
+        // 首先绑定上默认值
+		batchTransfers.cfg.transferMode = 'xhr';
+		batchTransfers.cfg.timeout = ndwr.transport.timeout;
+		
         // 没有设置回调 给个默认
-        if (!callbackArg /*== 'undefined' || callbackArg == null*/) {
+		if (!callbackArg /*== 'undefined' || callbackArg == null*/) {
             return { callBack: function (data) { }, errorHandler: ndwr.errorHandler };
         }
 		
@@ -145,6 +156,7 @@ if (typeof window['ndwr'] == 'undefined') {
         } else { // 否则类型不对
             throw new Error('回调函数errorHandler设置错误')
         }
+		
 		// 批次配置
 		setCurBatchCfg(callbackArg);
 		
@@ -157,23 +169,27 @@ if (typeof window['ndwr'] == 'undefined') {
      * 检测的配置有 {transferMode : 'xhr', timeout : 0}
      */
 	function setCurBatchCfg(callbackArg){
-		var transferModeType = typeof(callbackArg.transferModeType);
-		var timeoutType = ndwr.util.getType(callbackArg.timeout);
 	
 		// 传输模式
-		if (callbackArg.transferMode == 'xhr' || callbackArg.transferMode == 'iframe' || callbackArg.transferMode == 'scriptTag') {
-			batchTransfers.cfg.transferMode = callbackArg.transferModeType;
-		} else if (callbackArg.transferMode != undefined) {
+		if (callbackArg.transferMode == 'xhr' || callbackArg.transferMode == 'iframe' || callbackArg.transferMode == 'scriptTag') { // 指定3种
+			batchTransfers.cfg.transferMode = callbackArg.transferMode;
+		} else if  (callbackArg.transferMode == undefined){ // 如果为指定 ，使用默认xhr
+			batchTransfers.cfg.transferMode = 'xhr';
+		}else { // 其他值 抛出异常
 			throw new Error('传输模式不再可选对象xhr、iframe、scriptTag中');
 		}
 		// 超时时间
-		if(ndwr.util.getType(callbackArg.timeout) == 'number'){
-			if(callbackArg.timeout < 0){
-				throw new Error('超时时间不能为负数');
+		if(ndwr.util.getType(callbackArg.timeout) == undefined ){ // 未定义超时 使用默认超时间隔
+			batchTransfers.cfg.timeout = ndwr.transport.timeout;
+		} else { // 如果设置了超时
+			if(ndwr.util.getType(callbackArg.timeout) == 'number'){
+				if(callbackArg.timeout < 0){
+					throw new Error('超时时间不能为负数');
+				}
+				batchTransfers.cfg.timeout = parseInt(callbackArg.timeout,10);
+			}else if(callbackArg.timeout != undefined){
+				throw new Error('超时时间应设置为整数');
 			}
-			batchTransfers.cfg.timeout = parseInt(callbackArg.timeout,10);
-		}else if(callbackArg.timeout != undefined){
-			throw new Error('超时时间应设置为整数');
 		}
 	}
 	
@@ -181,7 +197,7 @@ if (typeof window['ndwr'] == 'undefined') {
      * 生成传输的参数
     */
     function buildTransferParams(serviceName, methodName, argList) {
-        batchTransfers.data['BatchID'] = batchId; // 批次号
+        batchTransfers.data['BatchId'] = batchId; // 批次号
         batchTransfers.data['Method|' + methodIndex] = serviceName + '.' + methodName; //Method|[methodIndex] = [ServiceName].[MethodName]
 
         for (var i = 0; i < argList.length - 1; i++) { // 顺序添加参数
@@ -233,7 +249,7 @@ if (typeof window['ndwr'] == 'undefined') {
 		if(uploadCtrls.length > 0){ // 如果存在上传 强制转换为iframe模式
 			batchTransfers.cfg.transferMode = 'iframe';
 		}
-		batcheCaches[batchId] = batchTransfers.cache; //[{batchId : batch}]
+		batcheCaches[batchId] = batchTransfers; //[{batchId : batch}]
         // 提交请求
         ndwr.transport.send(batchTransfers);
         // 初始化批次，以准备下一次调用
@@ -243,15 +259,9 @@ if (typeof window['ndwr'] == 'undefined') {
     // 执行回调
     ndwr.handleCallback = function (cb_batchId, cb_methodIndex, data, errors) {
         // 获取该次返回
-        //var batch = batches[cb_batchId][cb_methodIndex];
-        var batch;
-        if(!(batch = batcheCaches[cb_batchId]) || !(batch = batch[cb_methodIndex]) ){
-        //if (batch == null) { // 没找到在客户端的标记
-            if(!errors){ errors = []; }
-            errors.push({ "Name": "ClientError", Message: "请求未匹配到客户端回调" });
-            return;
-        }
-        var retCallBack = batch.CallBackFunc;
+        var batch = batcheCaches[cb_batchId];
+		// 找到该方法回调信息
+        var retCallBack = batch.cache[cb_methodIndex].CallBackFunc;
         // 如果服务端返回结果中带有错误信息，则不会激发回调函数
         if (errors && errors.length > 0) {
             // 指定了错误处理方法
@@ -266,7 +276,7 @@ if (typeof window['ndwr'] == 'undefined') {
     }
     
 
-    /************************************ ajax 使用 oracle 官网rest使用的 ajax 结构 /************************************/
+    /************************************ 异步调用 ************************************/
     ndwr.transport = {
         url : '',
         timeout: 0,
@@ -274,16 +284,17 @@ if (typeof window['ndwr'] == 'undefined') {
         sendingHandler : function(){ return true;},
         completedHandler : function(){},
         errorHandler : function(req) {},
+		timeoutHandler : function(){},
         send : function(batchInfo){
             if(this.sendingHandler() == false){
                 return;
             }
             switch(batchInfo.cfg.transferMode){
                 case 'xhr': 
-                    this.xhr.send(batchInfo.batchs, this.url, batchInfo.data); // 提交请求
+                    this.xhr.send( batchInfo); // 提交请求
                     break;
                 case 'iframe':
-                    this.iframe.send(batchInfo.batchs, this.url,batchInfo.data);
+                    this.iframe.send(batchInfo);
                     break;
                 case 'scriptTag':
                     break;
@@ -327,27 +338,30 @@ if (typeof window['ndwr'] == 'undefined') {
 					}
 			})(),
             // 提交请求
-			send: function (batchs, url, parameters) {
+			send: function (batchInfo) {
                 // 初始化参数
-                var p = this.constructRequest(parameters);
+                var p = this.constructRequest(batchInfo.data);
 			    // 获取异步请求实例
                 var req = ndwr.transport.xhr.reqFunc();
-                // 当前批次信息
-			    var xbatchs = batchs;
 			    // 状态变化事件
 			    req.onreadystatechange = function (ev) {
-			        ndwr.transport.xhr.stateChange(req, xbatchs);
+			        ndwr.transport.xhr.stateChange(req,batchInfo.cache.batchId);
 			    };
 			    // 提交
-			    req.open(ndwr.transport.xhr.method, url, true);
+			    req.open(ndwr.transport.xhr.method, ndwr.transport.url, true);
 			    //req.setRequestHeader("Content-type", ndwr.transport.xhr.contentType);
 			    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
+				batchInfo.instance = req;
+				batchInfo.timer = this.setTimer(batchInfo);
 			    req.send(p);
 			},
             // 状态改变事件
-			stateChange: function (req, batchs) {
+			stateChange: function (req,batchId) {
 			    if (req.readyState == 4) { // 完成
+					var batch = batcheCaches[batchId]; // 获取批次信息
+					if(batch.timer){
+						clearTimeout(batch.timer); // 停止定时器
+					}
                     ndwr.transport.completedHandler();
                     if(req.status == 200){
 			            eval(req.responseText);
@@ -371,6 +385,18 @@ if (typeof window['ndwr'] == 'undefined') {
                     add(i,this[i]);
                 });
 			    return s.join('&').replace( r20, "+" ); // 来自于jquery方式处理
+			},
+			setTimer : function(batchInfo){
+				if(batchInfo.cfg.timeout > 0){
+					var batchId = batchInfo.cache.batchId;
+					return setTimeout(function(){
+						var batch = batcheCaches[batchId]; // 获取批次信息
+						clearTimeout(batch.timer); // 停止定时器
+						batch.instance.abort(); // 取消进行中的异步
+						delete batch; // 移除该批次
+						ndwr.transport.timeoutHandler(); // 调用超时句柄
+					}, batchInfo.cfg.timeout);
+				}
 			}
 		},
         // form提交到iframe方式
@@ -384,22 +410,13 @@ if (typeof window['ndwr'] == 'undefined') {
                 document.body.appendChild(div);
                 div.innerHTML = '<iframe src="javascript:void(0)" frameborder="0" style="width: 0px;height: 0px; border: 0;" id="' + ifmtag + '" name="' + ifmtag + '" onload="ndwr.transport.iframe.callBack(\'' + batchId + '\');"></iframe>';
             },
-            send : function(batchs, url, parameters){
-                this.ifmFunc(batchs.batchId); // 构建iframe
+            send: function (batchInfo) {
+				var parameters = batchInfo.data;
+                var batchId = parameters.BatchId;
+                this.ifmFunc(batchId); // 构建iframe
                 var p = this.constructRequest(parameters);
-                // 构建form
-//                var form = document.createElement("form");
-//                form.id = this.formTag(batchs.batchId);
-//                form.action = url;
-//                form.method = "post";
-//                form.target = this.ifmTag(batchs.batchId);
-//                form.style.display = "none";
-//                if (uploadCtrls.length > 0) { // 存在上传
-//                    form.enctype = "multipart/form-data";
-//                    this.moveUploadCtrls(form);
-//                }
                 // form 表单 innerHtml
-                var formHtml = "<form id='" + this.formTag(batchs.batchId) + "' action='" + url + "' target='" + this.ifmTag(batchs.batchId) + "' style='display:none;' method='post'";
+                var formHtml = "<form id='" + this.formTag(batchId) + "' action='" + ndwr.transport.url + "' target='" + this.ifmTag(batchId) + "' style='display:none;' method='post'";
                 if (uploadCtrls.length > 0) { // 如果有上传
                     formHtml += " enctype='multipart/form-data'";
                 }
@@ -422,6 +439,8 @@ if (typeof window['ndwr'] == 'undefined') {
                 }
 
                 document.body.appendChild(form);
+				batchInfo.instance = form;
+				batchInfo.timer = this.setTimer(batchInfo);
                 form.submit();
             },
             moveUploadCtrls : function(form){
@@ -443,17 +462,37 @@ if (typeof window['ndwr'] == 'undefined') {
                 return p;
             },
             callBack : function(batchId){
+				if(!batchId || batchId == 'undefined'){
+					return;
+				}
                 var ifmtag = this.ifmTag(batchId);
-                if(window.frames[ifmtag].document.location.href.indexOf('about:blank') >=0){
+                if(!ifmtag || window.frames[ifmtag].document.location.href.indexOf('about:blank') >=0){
                     return;
                 }
-                //this.remove(batchId);
+                this.remove(batchId);
                 ndwr.transport.completedHandler();
                 
             },
+			setTimer : function(batchInfo){
+				if(batchInfo.cfg.timeout > 0){
+					var batchId = batchInfo.cache.batchId;
+					return setTimeout(function(){
+						var batch = batcheCaches[batchId]; // 获取批次信息
+						clearTimeout(batch.timer); // 停止定时器
+						var form = batch.instance;
+						form.parentNode.removeChild(form); // 取消进行中的异步
+						delete batch; // 移除该批次
+						ndwr.transport.timeoutHandler(); // 调用超时句柄
+					}, batchInfo.cfg.timeout);
+				}
+			},
             remove : function(batchId){
-                var ifmTag = document.getElementById(this.ifmTag(batchId)).parentNode;
-                var formTag = document.getElementById(this.formTag(batchId));
+                var batch = batcheCaches[batchId]; // 获取批次信息
+				if(batch.timer){
+					clearTimeout(batch.timer); // 停止定时器
+				}
+				var form = batch.instance;
+				form.parentNode.removeChild(form); // 取消进行中的异步
                 //if(ifmTag) {document.removeChild(ifmTag);}
                 //if(formTag){ document.removeChild(formTag);}
             }
@@ -469,7 +508,7 @@ if (typeof window['ndwr'] == 'undefined') {
             div.innerHTML = '<iframe src="ndwr/ndwrdownload.ashx?id=' + key + '" frameborder="0" style="width: 0px;height: 0px; border: 0;" ></iframe>';
         }
 	}
- /************************************ ajax 使用 oracle 官网rest使用的 ajax 结构 /************************************/
+ /************************************ 辅助类 ************************************/
 
     ndwr.util = {
         // 获取类型

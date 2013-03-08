@@ -5,9 +5,14 @@
     void Application_Start(object sender, EventArgs e) 
     {
         //在应用程序启动时运行的代码
+        // NDWR 使用默认配置，并设置扫描的程序集名称
         NDWR.Config.GlobalConfig.Instance.DefaultConfig("RemoteService");
+        // NDWR 添加实体验证过滤器
         NDWR.Config.GlobalConfig.Instance.Interceptors.Add(
             new RemoteService.NHVEntityValidateInterceptor());
+        // NDWR 添加权限验证顾虑器
+        NDWR.Config.GlobalConfig.Instance.Interceptors.Add(
+            new RemoteService.AuthorityInterceptor());
     }
     
     void Application_End(object sender, EventArgs e) 

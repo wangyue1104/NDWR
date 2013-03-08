@@ -52,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorityAttribute.cs" />
+    <Compile Include="AuthorityInterceptor.cs" />
     <Compile Include="NHVEntityValidateInterceptor.cs" />
     <Compile Include="NHVHelper.cs" />
     <Compile Include="RemoteDemo.cs" />

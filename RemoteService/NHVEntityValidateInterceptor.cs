@@ -20,7 +20,7 @@ namespace RemoteService {
     using NHibernate.Validator.Engine;
 
     /// <summary>
-    /// NHVEntityValidateInterceptor 概要
+    /// NHV实体验证拦截器
     /// </summary>
     public class NHVEntityValidateInterceptor : Interceptor {
         public void Init() {

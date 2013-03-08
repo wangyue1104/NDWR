@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NDWR.Attributes.CustomAttribute" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attributes\CustomAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.Attributes.RemoteMethodAttribute" Collapsed="true">
+    <Position X="14" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attributes\RemoteMethodAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.Attributes.RemoteServiceAttribute" Collapsed="true">
+    <Position X="5.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAQAEAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Attributes\RemoteServiceAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.ByteCode.ServiceProxyByteCode" Collapsed="true">
+    <Position X="7" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAIAgABAAAAAAAAAAgAoEAAAEQCABBAgAEE=</HashCode>
+      <FileName>ByteCode\ServiceProxyByteCode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.Config.GlobalConfig" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAECAAAAACAAAAAAAAEAAAAIAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Config\GlobalConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.NDWRException" Collapsed="true">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exception\NDWRException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.Invocation" Collapsed="true">
+    <Position X="12.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAIAgAAAAIACAABAEAAgABAIEAAAAAAAAA=</HashCode>
+      <FileName>InvocationManager\Invocation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.ParamItem" Collapsed="true">
+    <Position X="10.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InvocationManager\ParamItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.InvocationManager.RspError" Collapsed="true">
+    <Position X="10.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>InvocationManager\RspError.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.JavaScript.CoreJavaScript" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JavaScript\CoreJavaScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.JavaScript.RemoteServiceScript" Collapsed="true">
+    <Position X="7" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAACAIAAAAAAAAAQAAAAAAQCIBACAAAAA=</HashCode>
+      <FileName>JavaScript\RemoteServiceScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.JsonSerializer.DataContractJsonSerializerImpl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JsonSerializer\DataContractJsonSerializerImpl.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.JsonSerializer.NewtonsoftJsonSerializerImpl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JsonSerializer\NewtonsoftJsonSerializerImpl.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.Logging.Log4NetFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\Log4NetWrapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.Logging.Log4NetWrapper" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIgACAAACQAAAAQASgAQACAAAHAAAAAAAAABAAA=</HashCode>
+      <FileName>Logging\Log4NetWrapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.Logging.LogManager" Collapsed="true">
+    <Position X="10.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAgCAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\LogManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.Logging.NullLoggerFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="NDWR.Logging.NullLoggerFactory.NullLogger" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Logging\NullLogger.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\NullLogger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.MethodInterceptor.DownloadInterceptor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAACAgAAAAA=</HashCode>
+      <FileName>MethodInterceptor\DownloadInterceptor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.MethodInterceptor.ExceptionInterceptor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAABAAAAAAAACAgAAAAA=</HashCode>
+      <FileName>MethodInterceptor\ExceptionInterceptor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.MethodInterceptor.ParamConvertInterceptor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAgAAACAgAAAAA=</HashCode>
+      <FileName>MethodInterceptor\ParamConvertInterceptor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.ServiceScanner.AttributeServiceScanner" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAEACAAAAAAAAAGBAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>ServiceScanner\AttributeServiceScanner.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.ServiceScanner.XMLServiceScanner" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAABAAAAAAAAAAABAAAAAAAEA=</HashCode>
+      <FileName>ServiceScanner\XMLServiceScanner.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.ServiceStruct.Service" Collapsed="true">
+    <Position X="12.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAKAAAAAACAAAgBAAAACAQAAAAAEAMABABAAAAAAAA=</HashCode>
+      <FileName>ServiceStruct\Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.ServiceStruct.ServiceMethod" Collapsed="true">
+    <Position X="14" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAIAAAGACAAAAAIAAAQAAAAAEAAAAAAAAAAEAAA=</HashCode>
+      <FileName>ServiceStruct\ServiceMethod.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.ServiceStruct.ServiceMethodParam" Collapsed="true">
+    <Position X="5.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>ServiceStruct\ServiceMethodParam.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.Util.Kit" Collapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAQAAAAACBAAQIAACAAEAAAAAA=</HashCode>
+      <FileName>Util\Kit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.Validator.TypeHelper" Collapsed="true">
+    <Position X="12.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABQAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\TypeHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.Web.ContextSupport" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAABAAAIAAAAAAgAAAAAAAACAAAAA=</HashCode>
+      <FileName>Web\ContextSupport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.Web.StdRequest" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAAAAAAAIAAAAIAEAAACACAAABIAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Web\Request\StdRequest.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.Web.JsonRespose" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAIAAgAAAAAAABAAQAAQAAAAARAEAAAAAEAAAAA=</HashCode>
+      <FileName>Web\Response\JsonRespose.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.Web.NullResponse" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgBAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Web\Response\NullResponse.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.Web.ResponseFactory" Collapsed="true">
+    <Position X="8.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Web\Response\ResponseFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.Web.TransferFile" Collapsed="true">
+    <Position X="10.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAQAAAAgAAAAAAAAAAAAAACABAAABAQAmBAACA=</HashCode>
+      <FileName>Web\TransferFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.Web.Handler.CoreJavaScriptHandler" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Web\Handler\CoreJavaScriptHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NDWR.Web.Handler.DownloadHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Web\Handler\DownloadHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.Web.Handler.HandlerFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAEgAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Web\Handler\HandlerFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.Web.Handler.JavascriptHandler" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAABBAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Web\Handler\JavascriptHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NDWR.Web.Handler.RemoteHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Web\Handler\RemoteHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NDWR.Web.Handler.ServiceJavaScriptHandler" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Web\Handler\ServiceJavaScriptHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="NDWR.ByteCode.IServiceProxy" Collapsed="true">
+    <Position X="5.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>ByteCode\IServiceProxy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NDWR.JsonSerializer.IJsonSerializer" Collapsed="true">
+    <Position X="5.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JsonSerializer\IJsonSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NDWR.Logging.ILog" Collapsed="true">
+    <Position X="7" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAbCAAAAAAAAAQCAgAAUAAAAACEAEAQA=</HashCode>
+      <FileName>Logging\ILog.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NDWR.Logging.ILogFactory" Collapsed="true">
+    <Position X="8.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\ILogFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NDWR.MethodInterceptor.Interceptor" Collapsed="true">
+    <Position X="10.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAACAgAAAAA=</HashCode>
+      <FileName>MethodInterceptor\Interceptor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NDWR.ServiceScanner.IServiceScanner" Collapsed="true">
+    <Position X="7" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAACAAAAAAAAAABAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>ServiceScanner\IServiceScanner.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NDWR.Web.IRequest" Collapsed="true">
+    <Position X="12.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAIAEAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Web\IRequest.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NDWR.Web.IResponse" Collapsed="true">
+    <Position X="14" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Web\IResponse.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="NDWR.InvocationManager.SystemError" Collapsed="true">
+    <Position X="5.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAgAIACAAAAgAAAAEAAAAAAAAAAgAAhA=</HashCode>
+      <FileName>InvocationManager\RspError.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NDWR.ServiceStruct.TypeCategory" Collapsed="true">
+    <Position X="7" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAUAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ServiceStruct\TypeCategory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

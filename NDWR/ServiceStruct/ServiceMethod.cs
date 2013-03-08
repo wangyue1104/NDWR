@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using NDWR.Validator;
 using NDWR.Web;
+using NDWR.Attributes;
 
 namespace NDWR.ServiceStruct {
 
@@ -11,7 +12,8 @@ namespace NDWR.ServiceStruct {
     /// </summary>
     public class ServiceMethod {
 
-        public ServiceMethod(MethodInfo methodInfo, string name, ServiceMethodParam[] paramList) {
+        public ServiceMethod(int id,MethodInfo methodInfo, string name, ServiceMethodParam[] paramList,CustomAttribute[] customAttrs) {
+            this.Id = id;
             // 方法反射元数据信息
             this.MethodInfo = methodInfo;
             this.Name = name;
@@ -21,6 +23,8 @@ namespace NDWR.ServiceStruct {
             this.ReturnType = methodInfo.ReturnType;
             // 方法类型
             this.OutputType = TypeHelper.GetTypeCategory(this.ReturnType);
+
+            this.customAttrs = customAttrs;
         }
         /// <summary>
         /// 方法元数据信息
@@ -50,8 +54,24 @@ namespace NDWR.ServiceStruct {
         /// 所属服务
         /// </summary>
         public Service OwnerService { get; set; }
+
+        /// <summary>
+        /// 自定义特性
+        /// </summary>
+        private CustomAttribute[] customAttrs = null;
+        public T GetCustomAttr<T>() where T: CustomAttribute {
+            if (customAttrs == null) {
+                return null;
+            }
+            Type type = typeof(T);
+            for (int i = 0; i < customAttrs.Length; i++) {
+                if (customAttrs[i].GetType() == type) {
+                    return (T)customAttrs[i];
+                }
+            }
+            return null;
+        }
+    
     }
 
-
-    
 }

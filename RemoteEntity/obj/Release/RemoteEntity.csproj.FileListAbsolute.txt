@@ -1,0 +1,14 @@
+E:\GitHubRepository\NewNDWR\NDWR\RemoteEntity\bin\Release\RemoteEntity.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteEntity\bin\Release\RemoteEntity.pdb
+E:\GitHubRepository\NewNDWR\NDWR\RemoteEntity\bin\Release\NHibernate.Validator.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteEntity\bin\Release\NHibernate.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteEntity\obj\Release\ResolveAssemblyReference.cache
+E:\GitHubRepository\NewNDWR\NDWR\RemoteEntity\obj\Release\RemoteEntity.dll
+E:\GitHubRepository\NewNDWR\NDWR\RemoteEntity\obj\Release\RemoteEntity.pdb
+D:\Document\NDWR\RemoteEntity\bin\Release\RemoteEntity.dll
+D:\Document\NDWR\RemoteEntity\bin\Release\RemoteEntity.pdb
+D:\Document\NDWR\RemoteEntity\bin\Release\NHibernate.Validator.dll
+D:\Document\NDWR\RemoteEntity\bin\Release\NHibernate.dll
+D:\Document\NDWR\RemoteEntity\obj\Release\ResolveAssemblyReference.cache
+D:\Document\NDWR\RemoteEntity\obj\Release\RemoteEntity.dll
+D:\Document\NDWR\RemoteEntity\obj\Release\RemoteEntity.pdb

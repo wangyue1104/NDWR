@@ -1,0 +1,43 @@
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\SmartAjax\bin\Release\NDWR.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\SmartAjax\bin\Release\NDWR.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\SmartAjax\obj\Release\ResolveAssemblyReference.cache
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\SmartAjax\obj\Release\NDWR.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\SmartAjax\SmartAjax\obj\Release\NDWR.pdb
+D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\bin\Release\NDWR.dll
+D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\bin\Release\NDWR.pdb
+D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\obj\Release\NDWR.dll
+D:\MyDocument\DotNetWeb\SmartAjax\SmartAjax\obj\Release\NDWR.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWR\bin\Release\NDWR.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWR\bin\Release\NDWR.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWR\obj\Release\ResolveAssemblyReference.cache
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWR\obj\Release\NDWR.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWR\obj\Release\NDWR.pdb
+E:\GitHubRepository\NDWR\NDWR\bin\Release\NDWR.dll
+E:\GitHubRepository\NDWR\NDWR\bin\Release\NDWR.pdb
+E:\GitHubRepository\NDWR\NDWR\obj\Release\ResolveAssemblyReference.cache
+E:\GitHubRepository\NDWR\NDWR\obj\Release\NDWR.dll
+E:\GitHubRepository\NDWR\NDWR\obj\Release\NDWR.pdb
+D:\system_library\My Document\GitHub\NDWR\NDWR\bin\Release\NDWR.dll
+D:\system_library\My Document\GitHub\NDWR\NDWR\bin\Release\NDWR.pdb
+D:\system_library\My Document\GitHub\NDWR\NDWR\obj\Release\NDWR.dll
+D:\system_library\My Document\GitHub\NDWR\NDWR\obj\Release\NDWR.pdb
+D:\system_library\My Document\GitHub\NDWR\NDWR\obj\Release\NDWR.csprojResolveAssemblyReference.cache
+D:\system_library\My Document\GitHub\NDWR\NDWR\bin\Release\Newtonsoft.Json.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Release\NDWR.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Release\NDWR.pdb
+E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Release\log4net.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Release\Newtonsoft.Json.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Release\log4net.xml
+E:\GitHubRepository\NewNDWR\NDWR\NDWR\bin\Release\Newtonsoft.Json.xml
+E:\GitHubRepository\NewNDWR\NDWR\NDWR\obj\Release\ResolveAssemblyReference.cache
+E:\GitHubRepository\NewNDWR\NDWR\NDWR\obj\Release\NDWR.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWR\obj\Release\NDWR.pdb
+D:\Document\NDWR\NDWR\bin\Release\NDWR.dll
+D:\Document\NDWR\NDWR\bin\Release\NDWR.pdb
+D:\Document\NDWR\NDWR\bin\Release\log4net.dll
+D:\Document\NDWR\NDWR\bin\Release\Newtonsoft.Json.dll
+D:\Document\NDWR\NDWR\bin\Release\log4net.xml
+D:\Document\NDWR\NDWR\bin\Release\Newtonsoft.Json.xml
+D:\Document\NDWR\NDWR\obj\Release\ResolveAssemblyReference.cache
+D:\Document\NDWR\NDWR\obj\Release\NDWR.dll
+D:\Document\NDWR\NDWR\obj\Release\NDWR.pdb

@@ -123,29 +123,44 @@ namespace NDWR.ServiceScanner {
                 IList<Service> serviceList = new List<Service>(); // 定义结构图
                 MethodScanner methodScanner = new MethodScanner(owner);
                 Type type;
+                RemoteServiceAttribute ajaxServiceAttr;
+                IList<CustomAttribute> customAttr;
                 //
                 for(int i =0; i< types.Length; i++){
                     type = types[i];
                     object[] attrs = type.GetCustomAttributes(false); // 获取注解
-                    Service service = owner.matchingAttribute<Service>(attrs, typeof(RemoteServiceAttribute), attribute => {
-                        RemoteServiceAttribute ajaxServiceAttr = (RemoteServiceAttribute)attribute;
-
-                        IList<ServiceMethod> methods = methodScanner.ScanMethod(type);
-                        if (methods == null || methods.Count == 0) {
-                            return null;
-                        }
-
-                        return new Service(
-                            type,
-                            string.IsNullOrEmpty(ajaxServiceAttr.Name) ? type.Name : ajaxServiceAttr.Name,
-                            ajaxServiceAttr.Singleton, 
-                            methods.ToArray()
-                        );
-                    });
-                    if (service != null) {
-                        service.Id = i; // 添加ID
-                        serviceList.Add(service);
+                    if(attrs == null || attrs.Length  == 0){ // 没有特性标识 跳出
+                        continue;
                     }
+
+                    ajaxServiceAttr = null;
+                    customAttr = new List<CustomAttribute>();
+                    foreach (object attribute in attrs) {
+                        if (attribute.GetType() == typeof(RemoteServiceAttribute)) {
+                            ajaxServiceAttr = (RemoteServiceAttribute)attribute;
+                        } else if(attribute.GetType().BaseType == typeof(CustomAttribute)) {
+                            customAttr.Add((CustomAttribute)attribute);
+                        }
+                    }
+                    // 如果没有找到服务特性
+                    if (ajaxServiceAttr == null) {
+                        continue;
+                    }
+                    // 遍历开放的方法
+                    IList<ServiceMethod> methods = methodScanner.ScanMethod(type);
+                    if (methods == null || methods.Count == 0) { // 没有找到，跳出
+                        continue;
+                    }
+
+                    Service service = new Service(
+                        i,
+                        type,
+                        string.IsNullOrEmpty(ajaxServiceAttr.Name) ? type.Name : ajaxServiceAttr.Name,
+                        ajaxServiceAttr.Singleton,
+                        methods.ToArray(),
+                        customAttr.ToArray());
+
+                    serviceList.Add(service);
                 }
                 
                 return serviceList.ToArray();
@@ -168,8 +183,11 @@ namespace NDWR.ServiceScanner {
             public IList<ServiceMethod> ScanMethod(Type type) {
                 MethodInfo[] methods = type.GetMethods(); // 获取成员方法
                 IList<ServiceMethod> actions = new List<ServiceMethod>(); // 实例化Action集合
-                ParamScanner paramScanner = new ParamScanner();
-                MethodInfo method;
+                ParamScanner paramScanner = new ParamScanner(); // 参数扫描
+                // 循环变量
+                MethodInfo method; // 方法
+                RemoteMethodAttribute ajaxMethodAttr; // 特性
+                IList<CustomAttribute> customAttr; // 其他自定义特性
 
                 for(int i=0; i<methods.Length; i++){
                     method = methods[i];
@@ -178,19 +196,31 @@ namespace NDWR.ServiceScanner {
                     }
 
                     object[] attrs = method.GetCustomAttributes(false);// 获取注解
-                    ServiceMethod serviceMethod = owner.matchingAttribute<ServiceMethod>(attrs, typeof(RemoteMethodAttribute), attribute => {
-                        RemoteMethodAttribute ajaxMethodAttr = (RemoteMethodAttribute)attribute;
-                        ServiceMethod sm = new ServiceMethod(
-                            method,
-                            string.IsNullOrEmpty(ajaxMethodAttr.Name) ? method.Name : ajaxMethodAttr.Name,
-                            paramScanner.ScanParam(method));
-
-                        return sm;
-                    }); // 匹配注解
-                    if (serviceMethod != null) {
-                        serviceMethod.Id = i;
-                        actions.Add(serviceMethod);
+                    if (attrs == null || attrs.Length == 0) {
+                        continue;
                     }
+                    ajaxMethodAttr = null;
+                    customAttr = new List<CustomAttribute>();
+                    foreach (object attribute in attrs) {
+                        if (attribute.GetType() == typeof(RemoteMethodAttribute)) {
+                            ajaxMethodAttr = (RemoteMethodAttribute)attribute;
+                        } else if (attribute.GetType().BaseType == typeof(CustomAttribute)) {
+                            customAttr.Add((CustomAttribute)attribute);
+                        }
+                    }
+
+                    if (ajaxMethodAttr == null) {
+                        continue;
+                    }
+
+                    ServiceMethod serviceMethod = new ServiceMethod(
+                        i,
+                        method,
+                        string.IsNullOrEmpty(ajaxMethodAttr.Name) ? method.Name : ajaxMethodAttr.Name,
+                        paramScanner.ScanParam(method),
+                        customAttr.ToArray()
+                    );
+                    actions.Add(serviceMethod);
                 }
                 return actions;
             }

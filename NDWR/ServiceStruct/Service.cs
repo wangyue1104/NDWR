@@ -14,6 +14,7 @@ namespace NDWR.ServiceStruct {
     using System;
     using NDWR.ByteCode;
     using NDWR.JavaScript;
+using NDWR.Attributes;
 
 
 
@@ -25,7 +26,8 @@ namespace NDWR.ServiceStruct {
         private IServiceProxy proxy = null;
         private object obj_lock = new object();
 
-        public Service(Type serviceType, string name, bool singleton, ServiceMethod[] publicMethods) {
+        public Service(int id,Type serviceType, string name, bool singleton, ServiceMethod[] publicMethods,CustomAttribute[] customAttrs) {
+            this.Id = id;
             this.ServiceType = serviceType;
             this.Name = name;
             this.Singleton = singleton;
@@ -40,12 +42,14 @@ namespace NDWR.ServiceStruct {
             foreach (ServiceMethod method in this.PublicMethod) {
                 method.OwnerService = this;
             }
+
+            this.customAttrs = customAttrs;
         }
 
         /// <summary>
         /// 方法标识ID,用于检索
         /// </summary>
-        public int Id { get; set; }
+        public int Id { get; private set; }
         /// <summary>
         /// 服务类类型
         /// </summary>
@@ -91,6 +95,21 @@ namespace NDWR.ServiceStruct {
         /// 该服务生成的JS脚本
         /// </summary>
         public string JavaScript { get; private set; }
+
+
+        private CustomAttribute[] customAttrs;
+        public T GetCustomAttr<T>() where T : CustomAttribute {
+            if (customAttrs == null) {
+                return null;
+            }
+            Type type = typeof(T);
+            for (int i = 0; i < customAttrs.Length; i++) {
+                if (customAttrs[i].GetType() == type) {
+                    return (T)customAttrs[i];
+                }
+            }
+            return null;
+        }
     }
 
 }

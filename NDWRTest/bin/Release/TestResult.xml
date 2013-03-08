@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\Project1.nunit" total="1" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-08-26" time="09:12:51">
+  <environment nunit-version="2.5.10.11092" clr-version="2.0.50727.4971" os-version="Microsoft Windows NT 6.1.7600.0" platform="Win32NT" cwd="D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Debug" machine-name="LEGENT-PC" user="Administrator" user-domain="Legent-PC" />
+  <culture-info current-culture="zh-CN" current-uiculture="zh-CN" />
+  <test-suite type="Project" name="D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\Project1.nunit" executed="True" result="Failure" success="False" time="0.203" asserts="0">
+    <results>
+      <test-suite type="Assembly" name="D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\..\Debug\NDWRTest.dll" executed="True" result="Failure" success="False" time="0.203" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="SmartAjaxTest" executed="True" result="Failure" success="False" time="0.203" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="JsonDemo" executed="True" result="Failure" success="False" time="0.203" asserts="0">
+                <results>
+                  <test-case name="SmartAjaxTest.JsonDemo.SerializeTest" executed="True" result="Error" success="False" time="0.172" asserts="0">
+                    <failure>
+                      <message><![CDATA[Newtonsoft.Json.JsonWriterException : Token Integer in state Start would result in an invalid JavaScript object.]]></message>
+                      <stack-trace><![CDATA[在 Newtonsoft.Json.JsonWriter.AutoComplete(JsonToken tokenBeingWritten)
+在 Newtonsoft.Json.JsonWriter.WriteValueInternal(String value, JsonToken token)
+在 Newtonsoft.Json.JsonWriter.WriteValue(Int32 value)
+在 Newtonsoft.Json.JsonSerializer.SerializeValue(JsonWriter writer, Object value)
+在 Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+在 Newtonsoft.Json.JavaScriptConvert.SerializeObject(Object value, JsonConverter[] converters)
+在 Newtonsoft.Json.JavaScriptConvert.SerializeObject(Object value)
+在 SmartAjaxTest.JsonDemo.SerializeTest() 位置 d:\system_library\My Document\GitHub\NDWR\NDWRTest\JsonDemo.cs:行号 41
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

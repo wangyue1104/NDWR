@@ -21,7 +21,7 @@ namespace RemoteService {
     using System.Web;
 
     /// <summary>
-    /// NHVHelper 概要
+    /// NHV帮助类
     /// </summary>
     public class NHVHelper {
 

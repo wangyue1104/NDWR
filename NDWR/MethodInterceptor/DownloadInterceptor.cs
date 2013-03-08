@@ -25,7 +25,7 @@ namespace NDWR.MethodInterceptor {
             // 执行目标方法
             methodInvoke.Invoke();
             // 如果输出流方式或包含输出流方式
-            if (methodInvoke.MethodMetaData.OutputType == TypeCategory.BinaryType) {
+            if (methodInvoke.MethodMetaData.OutputType == TypeCategory.BinaryType && methodInvoke.RetValue != null) {
                 TransferFile tfile = ((TransferFile)methodInvoke.RetValue);
                 NDWR.Util.Kit.SetAbsCache(tfile.ID, tfile);
                 methodInvoke.RetValue = tfile.ID;

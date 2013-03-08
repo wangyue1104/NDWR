@@ -1,0 +1,79 @@
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWRTest\bin\Release\NDWRTest.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWRTest\bin\Release\NDWRTest.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWRTest\bin\Release\NDWR.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWRTest\bin\Release\nunit.framework.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWRTest\bin\Release\nunit.mocks.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWRTest\bin\Release\NDWR.pdb
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWRTest\bin\Release\nunit.framework.xml
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWRTest\obj\Release\ResolveAssemblyReference.cache
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWRTest\obj\Release\NDWRTest.dll
+d:\我的配置\My Documents\Visual Studio 2010\Projects\NDWR\新版\SmartAjax\NDWRTest\obj\Release\NDWRTest.pdb
+E:\GitHubRepository\NDWR\NDWRTest\bin\Release\NDWRTest.dll
+E:\GitHubRepository\NDWR\NDWRTest\bin\Release\NDWRTest.pdb
+E:\GitHubRepository\NDWR\NDWRTest\bin\Release\NDWR.dll
+E:\GitHubRepository\NDWR\NDWRTest\bin\Release\nunit.framework.dll
+E:\GitHubRepository\NDWR\NDWRTest\bin\Release\nunit.mocks.dll
+E:\GitHubRepository\NDWR\NDWRTest\bin\Release\NDWR.pdb
+E:\GitHubRepository\NDWR\NDWRTest\bin\Release\nunit.framework.xml
+E:\GitHubRepository\NDWR\NDWRTest\obj\Release\ResolveAssemblyReference.cache
+E:\GitHubRepository\NDWR\NDWRTest\obj\Release\NDWRTest.dll
+E:\GitHubRepository\NDWR\NDWRTest\obj\Release\NDWRTest.pdb
+E:\GitHubRepository\NDWR\NDWRTest\bin\Release\RemoteService.dll
+E:\GitHubRepository\NDWR\NDWRTest\bin\Release\NHibernate.Validator.dll
+E:\GitHubRepository\NDWR\NDWRTest\bin\Release\NHibernate.dll
+E:\GitHubRepository\NDWR\NDWRTest\bin\Release\RemoteService.pdb
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\NDWRTest.dll
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\NDWRTest.pdb
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\NDWR.dll
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\RemoteService.dll
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\NHibernate.Validator.dll
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\NHibernate.dll
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\NDWR.pdb
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\RemoteService.pdb
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\nunit.framework.xml
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\obj\Release\NDWRTest.csprojResolveAssemblyReference.cache
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\obj\Release\NDWRTest.dll
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\obj\Release\NDWRTest.pdb
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\Newtonsoft.Json.dll
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\RemoteEntity.dll
+D:\system_library\My Document\GitHub\NDWR\NDWRTest\bin\Release\RemoteEntity.pdb
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\NDWRTest.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\NDWRTest.pdb
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\NDWR.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\Newtonsoft.Json.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\nunit.framework.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\nunit.mocks.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\RemoteEntity.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\RemoteService.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\log4net.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\NHibernate.Validator.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\NHibernate.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\NDWR.pdb
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\RemoteEntity.pdb
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\RemoteService.pdb
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\Newtonsoft.Json.xml
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\nunit.framework.xml
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\bin\Release\log4net.xml
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\obj\Release\ResolveAssemblyReference.cache
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\obj\Release\NDWRTest.dll
+E:\GitHubRepository\NewNDWR\NDWR\NDWRTest\obj\Release\NDWRTest.pdb
+D:\Document\NDWR\NDWRTest\bin\Release\NDWRTest.dll
+D:\Document\NDWR\NDWRTest\bin\Release\NDWRTest.pdb
+D:\Document\NDWR\NDWRTest\bin\Release\NDWR.dll
+D:\Document\NDWR\NDWRTest\bin\Release\Newtonsoft.Json.dll
+D:\Document\NDWR\NDWRTest\bin\Release\nunit.framework.dll
+D:\Document\NDWR\NDWRTest\bin\Release\nunit.mocks.dll
+D:\Document\NDWR\NDWRTest\bin\Release\RemoteEntity.dll
+D:\Document\NDWR\NDWRTest\bin\Release\RemoteService.dll
+D:\Document\NDWR\NDWRTest\bin\Release\log4net.dll
+D:\Document\NDWR\NDWRTest\bin\Release\NHibernate.Validator.dll
+D:\Document\NDWR\NDWRTest\bin\Release\NHibernate.dll
+D:\Document\NDWR\NDWRTest\bin\Release\NDWR.pdb
+D:\Document\NDWR\NDWRTest\bin\Release\RemoteEntity.pdb
+D:\Document\NDWR\NDWRTest\bin\Release\RemoteService.pdb
+D:\Document\NDWR\NDWRTest\bin\Release\Newtonsoft.Json.xml
+D:\Document\NDWR\NDWRTest\bin\Release\nunit.framework.xml
+D:\Document\NDWR\NDWRTest\bin\Release\log4net.xml
+D:\Document\NDWR\NDWRTest\obj\Release\ResolveAssemblyReference.cache
+D:\Document\NDWR\NDWRTest\obj\Release\NDWRTest.dll
+D:\Document\NDWR\NDWRTest\obj\Release\NDWRTest.pdb

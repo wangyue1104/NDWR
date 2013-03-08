@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\CustomAttribute.cs" />
     <Compile Include="Attributes\RemoteMethodAttribute.cs" />
     <Compile Include="Attributes\RemoteServiceAttribute.cs" />
     <Compile Include="ByteCode\IServiceProxy.cs" />
@@ -110,6 +111,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

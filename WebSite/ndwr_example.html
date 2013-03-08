@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="Scripts/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="Scripts/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="Scripts/bootstrap/css/docs.css" rel="stylesheet" type="text/css" />
+    <link href="Scripts/bootstrap/css/prettify.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="Scripts/datatable/plugins/DT_bootstrap.css" />
+    <link href="Scripts/bootstrap/plugins/select2/css/select2-2.1.css" rel="stylesheet" type="text/css" />
+
+    <script src="Scripts/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <script type="text/javascript" src="Scripts/jquery/jquery.metadata.js"></script>
+    <script type="text/javascript" src="Scripts/bootstrap/js/bootstrap.js"></script>
+    <script src="Scripts/bootstrap/js/application.js" type="text/javascript"></script>
+    <script type="text/javascript" src="Scripts/datatable/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="Scripts/datatable/plugins/DT_bootstrap.js"></script>
+    <script src="Scripts/bootstrap/plugins/select2/js/select2-2.1.js" type="text/javascript"></script>
+    <script src="Scripts/bootstrap/js/prettify.js" type="text/javascript"></script>
+
+    <script src="ndwr/ndwrcore.ashx" type="text/javascript"></script>
+    <script src="ndwr/RemoteDemo.ashx" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            ndwr.transport.timeout = 10000;
+            ndwr.transport.timeoutHandler = function () {
+                alert('超时');
+            };
+        });
+
+    </script>
+</head>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+    <!-- Navbar ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar">
+                    </span>
+                </button>
+                <a class="brand" href="./index.html">NDWR</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="active"><a href="#">Home</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Masthead ================================================== -->
+    <header class="jumbotron subhead" id="overview">
+        <div class="container">
+            <h1>NDWR 说明</h1>
+            <p class="lead"><a href="https://github.com/wangyue1104/NDWR">Download NDWR</a> PPT中附有更详细说明.</p>
+        </div>
+    </header>
+    <div class="container">
+        <!-- Docs nav ================================================== -->
+        <div class="row">
+            <div class="span3 bs-docs-sidebar">
+                <ul class="nav nav-list bs-docs-sidenav">
+                    <li><a href="#publicservice"><i class="icon-chevron-right"></i>1. 公开服务</a></li>
+                    <li><a href="#components"><i class="icon-chevron-right"></i>2. 引入服务</a></li>
+                    <li><a href="#plugins"><i class="icon-chevron-right"></i>3. 常规调用</a></li>
+                    <li><a href="#downloadfile"><i class="icon-chevron-right"></i>4. 下载文件</a></li>
+                    <li><a href="#uploadfile"><i class="icon-chevron-right"></i>5. 上载文件</a></li>
+                    <li><a href="#batch_invoke"><i class="icon-chevron-right"></i>6. 批量调用</a></li>
+                    <li><a href="#global_set"><i class="icon-chevron-right"></i>7. 全局设置</a></li>
+                </ul>
+            </div>
+            <div class="span9">
+
+                <!-- Customize form ================================================== -->
+                <section class="download" id="publicservice">
+                    <div class="page-header">
+                        <a class="btn btn-small pull-right toggle-all" href="#">Toggle all</a>
+                        <h1>公开服务</h1>
+                    </div>
+
+                    <h2>说明</h2>
+                      <p>类声明RemoteService特性</p>
+                      <p>方法声明RemoteMethod特性</p>
+                      <div class="bs-docs-example">
+                          可以指定特性的Name，默认为类名
+                      </div>
+                    <pre class="prettyprint linenums">
+[RemoteService]
+public class RemoteDemo {
+    [RemoteMethod]
+    public string HelloWold() {
+        return "Hello Wold!";
+    }
+}
+</pre>
+                </section>
+                <!-- /download -->
+
+
+                <!-- Customize form ================================================== -->
+                <section class="download" id="components">
+                    <div class="page-header">
+                        <a class="btn btn-small pull-right toggle-all" href="#">Toggle all</a>
+                        <h1>引入服务</h1>
+                    </div>
+
+                    <h2>说明</h2>
+                      <p>ndwr服务脚本路径为[website]/[ndwr]/[service].ashx</p>
+                      <p>必须引入核心处理js - ndwrcore</p>
+                      <div class="bs-docs-example">
+                      </div>
+                    <pre class="prettyprint linenums">
+&lt;script src="ndwr/ndwrcore.ashx" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="ndwr/RemoteDemo.ashx" type="text/javascript"&gt;&lt;/script&gt;
+...
+&lt;script src="ndwr/[ServiceName].ashx" type="text/javascript"&gt;&lt;/script&gt;
+</pre>
+                </section>
+                <!-- /download -->
+
+                <!-- Customize form ================================================== -->
+                <section class="download" id="plugins">
+                    <div class="page-header">
+                        <a class="btn btn-small pull-right toggle-all" href="#">Toggle all</a>
+                        <h1>常规调用</h1>
+                    </div>
+
+                    <h2>说明</h2>
+                      <p>基本方法调用示例</p>
+                      <p>js调用时，对参数要求强类型，即js类型要和cs类型匹配</p>
+                      <p>以下例子包含回调配置</p>
+                      <div class="bs-docs-example">
+                          <button class="btn" onclick="RemoteDemo.No1(function(data){ alert('本次调用没有返回值');});">No1</button>
+                          <button class="btn" onclick="RemoteDemo.HelloWold(function(data){ alert(data);  });">HelloWold</button>
+                          <button class="btn" onclick="RemoteDemo.PubMethod2(1,{Id:1,Name:'wangyue',Birthday : new Date()},function(data){  alert('Id + entity.Id = ' + data); });">PubMethod2</button>
+                          <button class="btn" onclick="RemoteDemo.PubMethod(1, { callBack : function(data){ alert(data); }, errorHandler : function(errors){ alert(errors[0].Message); }  });">PubMethod</button>
+                      </div>
+                    <pre class="prettyprint linenums">
+&lt;script type="text/javascript"&gt;
+    // 无参无返回值
+    RemoteDemo.No1(); 
+    // 无参有返回值
+    RemoteDemo.HelloWold(function(data){
+        alert(data);
+    });
+    // 含参调用
+    RemoteDemo.PubMethod2(1,{Id:1,Name:'wangyue',Birthday : new Date()},function(data){ 
+        alert('参数 Id + entity.Id = ' + data);
+    });
+    // 自定义异常处理
+    RemoteDemo.PubMethod(1, {
+        callBack : function(data){ alert(data); }, // 数据回调
+        errorHandler : function(errors){ alert(errors[0].Message); } // 错误处理句柄
+    });
+    // 更全面的自定义配置
+    RemoteDemo.PubMethod(1, {
+        callBack : function(data){ alert(data); }, // 数据回调
+        errorHandler : function(errors){ alert(errors[0].Message); }, // 错误处理句柄
+        transferMode : 'xhr',  // 提交模式
+        timeout : 0 // 超时时间
+    });
+&lt;/script&gt;
+</pre>
+                </section>
+                <!-- /download -->
+
+                <!-- Customize form ================================================== -->
+                <section class="download" id="downloadfile">
+                    <div class="page-header">
+                        <a class="btn btn-small pull-right toggle-all" href="#">Toggle all</a>
+                        <h1>下载文件</h1>
+                    </div>
+
+                    <h2>说明</h2>
+                      <p>下载文件返回的结果是请求文件在服务端的key值，必须以此Key值再次请求服务端，以下载文件</p>
+                      <p>服务端方法返回值必须是TransferFile</p>
+                      <div class="bs-docs-example">
+                          <button class="btn" onclick="RemoteDemo.DownLoadFile({Id : 1, Name : 'wangyue'}, function (data) { alert('服务端以准备好文件，请求到文件key为：' + data); ndwr.transport.download(data);  });">DownLoadFile</button>
+                      </div>
+                    <pre class="prettyprint linenums">
+&lt;script type="text/C#"&gt;
+    [RemoteService]
+    public class RemoteDemo {
+        [RemoteMethod]
+        public TransferFile DownLoadFile(Entity entity) {
+            return new TransferFile() {
+                FileName = "dd.xls",
+                ContentType = TransferFile.EXCEL,
+                DataBuffer = new byte[] { 11, 22 }
+            };
+        }
+    }
+&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+    RemoteDemo.DownLoadFile({Id : 1, Name : 'wangyue'}, function (data) {
+        alert('服务端以准备好文件，请求到文件key为：' + data);
+        ndwr.transport.download(data);
+    });
+&lt;/script&gt;
+</pre>
+                </section>
+                <!-- /download -->
+
+                <!-- Customize form ================================================== -->
+                <section class="download" id="uploadfile">
+                    <div class="page-header">
+                        <a class="btn btn-small pull-right toggle-all" href="#">Toggle all</a>
+                        <h1>上传文件</h1>
+                    </div>
+
+                    <h2>说明</h2>
+                      <p>文件上传类型对应后台TransferFile类型</p>
+                      <p>文件上传类型对应前台HtmlInputFile节点,必须有name属性</p>
+                      <div class="bs-docs-example">
+                          <input type="file" id="theFile" name="theFile" /><button class="btn" onclick="RemoteDemo.UpLoadFile(document.getElementById('theFile'), function (data) { alert(data); });">UpLoadFile</button>
+                      </div>
+                    <pre class="prettyprint linenums">
+&lt;script type="text/C#"&gt;
+    [RemoteService]
+    public class RemoteDemo {
+        [RemoteMethod]
+        public string UpLoadFile(TransferFile file) {
+            if (file == null) {
+                return "未发现文件";
+            }
+            if (!string.IsNullOrEmpty(file.FileName)) {
+                byte[] data = new byte[file.ContentLength];
+                file.DataStream.Read(data, 0, (int)file.ContentLength);
+
+                file.SaveAs("~/Upload", file.FileName);
+            }
+            return "上传成功";
+        }
+    }
+&lt;/script&gt;
+&lt;input type="file" id="theFile" name="theFile" /&gt;
+&lt;script type="text/javascript"&gt;
+    RemoteDemo.UpLoadFile(document.getElementById("theFile"), function (data) { alert(data); });
+&lt;/script&gt;
+</pre>
+                </section>
+                <!-- /download -->
+
+                <!-- Customize form ================================================== -->
+                <section class="download" id="batch_invoke">
+                    <div class="page-header">
+                        <a class="btn btn-small pull-right toggle-all" href="#">Toggle all</a>
+                        <h1>批量调用</h1>
+                    </div>
+
+                    <h2>说明</h2>
+                      <p>调用ndwr.BeginBatch();开启批量模式</p>
+                      <p>调用ndwr.EndBatch();结束本批次并提交</p>
+                      <div class="bs-docs-example">
+                          <input type="file" id="theFileInBatch" name="theFileInBatch" /><button class="btn" onclick="batch_test()">UpLoadFile</button>
+                      </div>
+                    <pre class="prettyprint linenums">
+&lt;input type="file" id="theFile" name="theFile" /&gt;
+&lt;script type="text/javascript"&gt;
+    ndwr.BeginBatch();
+    // 常规调用
+    RemoteDemo.HelloWold(function(data){
+        alert(data);
+    });
+    // 下载
+    RemoteDemo.DownLoadFile({Id : 1, Name : 'wangyue'}, function (data) {
+        alert('服务端以准备好文件，请求到文件key为：' + data);
+        ndwr.transport.download(data);
+    });
+    // 上传
+    RemoteDemo.UpLoadFile(document.getElementById("theFileInBatch"), function (data) { alert(data); });
+
+    ndwr.EndBatch();
+    // ndwr.EndBatch()可以设置本批次参数
+    //ndwr.EndBatch({
+    //    transferMode : 'xhr',  // 提交模式
+    //    timeout : 0 // 超时时间              
+    //});
+&lt;/script&gt;
+</pre>
+                </section>
+                <!-- /download -->
+<script type="text/javascript">
+    function batch_test() {
+        ndwr.BeginBatch();
+
+        RemoteDemo.HelloWold(function (data) {
+            alert(data);
+        });
+        RemoteDemo.DownLoadFile({ Id: 1, Name: 'wangyue' }, function (data) {
+            alert('服务端以准备好文件，请求到文件key为：' + data);
+            ndwr.transport.download(data);
+        });
+
+        RemoteDemo.UpLoadFile(document.getElementById("theFileInBatch"), function (data) { alert(data); });
+
+        ndwr.EndBatch();
+    }
+</script>
+
+
+                <!-- Customize form ================================================== -->
+                <section class="download" id="global_set">
+                    <div class="page-header">
+                        <a class="btn btn-small pull-right toggle-all" href="#">Toggle all</a>
+                        <h1>全局设置</h1>
+                    </div>
+
+                    <h2>说明</h2>
+                      <p>下载文件返回的结果是请求文件在服务端的key值，必须以此Key值再次请求服务端，以下载文件</p>
+                      <p>服务端方法返回值必须是TransferFile</p>
+                      <div class="bs-docs-example">
+                          <textarea id="global_function" style="width:90%; height:100px;"></textarea><br />
+                          <button class="btn" onclick="try{eval(document.getElementById('global_function').value);}catch(e){alert('执行错误');}">执行脚本</button>
+                      </div>
+                    <div>
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>setting</th>
+                                    <th>type</th>
+                                    <th>description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ndwr.errorHandler</td>
+                                    <td>function</td>
+                                    <td>服务端错误处理句柄</td>
+                                </tr>
+                                <tr>
+                                    <td>ndwr.dataFilter</td>
+                                    <td>function</td>
+                                    <td>服务端返回数据回调前的过滤器，返回true是继续执行回调，否则结束。</td>
+                                </tr>
+                                <tr>
+                                    <td>ndwr.transport.timeout</td>
+                                    <td>number</td>
+                                    <td>超时时间 >= 0,0为永不超时</td>
+                                </tr>
+                                <tr>
+                                    <td>ndwr.transport.timeoutHandler</td>
+                                    <td>function</td>
+                                    <td>超时处理句柄</td>
+                                </tr>
+                                <tr>
+                                    <td>ndwr.transport.mode</td>
+                                    <td>string</td>
+                                    <td>['xhr']| ['iframe']|['tagScript']一种交互模式</td>
+                                </tr>
+                                <tr>
+                                    <td>ndwr.transport.sendingHandler</td>
+                                    <td>function</td>
+                                    <td>开始发送请求</td>
+                                </tr>
+                                <tr>
+                                    <td>ndwr.transport.completedHandler</td>
+                                    <td>function</td>
+                                    <td>完成请求(不一定请求成功，标识本次请求结束)</td>
+                                </tr>
+                                <tr>
+                                    <td>ndwr.transport.errorHandler</td>
+                                    <td>function</td>
+                                    <td>请求错误处理句柄(与上面错误句柄区别是服务端和客户端异常)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <!-- /download -->
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+
+      </div>
+    </footer>
+</body>
+</html>
